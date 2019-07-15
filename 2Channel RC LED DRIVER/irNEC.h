@@ -85,13 +85,13 @@
 	void setFallingEdgeInterrupt(void);
 	void setRisingEdgeInterrupt(void);
 	void toggleEdgeInterrupt(void);
-	void leadPulseChecking(uint8_t);
+	//void leadPulseChecking(uint8_t);
 	void decodeNECframe(void);
 	void resetFrameReading (void);
 	void dataValidation(void);
 	void initIrNEC (void);
 	void initTimer2_50us(void);
 	void initINT0 (void);
-	void temp (void);
+	//void temp (void);
 
 #endif /* IRNEC_H_ */
