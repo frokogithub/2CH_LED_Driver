@@ -1,0 +1,1839 @@
+
+2Channel RC LED DRIVER.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         0000002c  00800100  000013b0  00001444  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         000013b0  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000034  0080012c  0080012c  00001470  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00001470  2**0
+                  CONTENTS, READONLY
+  4 .debug_aranges 000000a8  00000000  00000000  000014a0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00000a3b  00000000  00000000  00001548  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 00000309  00000000  00000000  00001f83  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   000004fe  00000000  00000000  0000228c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  000001a8  00000000  00000000  0000278c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    00000555  00000000  00000000  00002934  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    000002f8  00000000  00000000  00002e89  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000088  00000000  00000000  00003181  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+       0:	0c 94 49 04 	jmp	0x892	; 0x892 <__ctors_end>
+       4:	0c 94 83 04 	jmp	0x906	; 0x906 <__vector_1>
+       8:	0c 94 66 04 	jmp	0x8cc	; 0x8cc <__bad_interrupt>
+       c:	0c 94 66 04 	jmp	0x8cc	; 0x8cc <__bad_interrupt>
+      10:	0c 94 66 04 	jmp	0x8cc	; 0x8cc <__bad_interrupt>
+      14:	0c 94 66 04 	jmp	0x8cc	; 0x8cc <__bad_interrupt>
+      18:	0c 94 66 04 	jmp	0x8cc	; 0x8cc <__bad_interrupt>
+      1c:	0c 94 e9 04 	jmp	0x9d2	; 0x9d2 <__vector_7>
+      20:	0c 94 66 04 	jmp	0x8cc	; 0x8cc <__bad_interrupt>
+      24:	0c 94 66 04 	jmp	0x8cc	; 0x8cc <__bad_interrupt>
+      28:	0c 94 66 04 	jmp	0x8cc	; 0x8cc <__bad_interrupt>
+      2c:	0c 94 66 04 	jmp	0x8cc	; 0x8cc <__bad_interrupt>
+      30:	0c 94 66 04 	jmp	0x8cc	; 0x8cc <__bad_interrupt>
+      34:	0c 94 66 04 	jmp	0x8cc	; 0x8cc <__bad_interrupt>
+      38:	0c 94 66 04 	jmp	0x8cc	; 0x8cc <__bad_interrupt>
+      3c:	0c 94 66 04 	jmp	0x8cc	; 0x8cc <__bad_interrupt>
+      40:	0c 94 66 04 	jmp	0x8cc	; 0x8cc <__bad_interrupt>
+      44:	0c 94 66 04 	jmp	0x8cc	; 0x8cc <__bad_interrupt>
+      48:	0c 94 66 04 	jmp	0x8cc	; 0x8cc <__bad_interrupt>
+      4c:	0c 94 66 04 	jmp	0x8cc	; 0x8cc <__bad_interrupt>
+      50:	0c 94 66 04 	jmp	0x8cc	; 0x8cc <__bad_interrupt>
+      54:	0c 94 66 04 	jmp	0x8cc	; 0x8cc <__bad_interrupt>
+      58:	0c 94 66 04 	jmp	0x8cc	; 0x8cc <__bad_interrupt>
+      5c:	0c 94 66 04 	jmp	0x8cc	; 0x8cc <__bad_interrupt>
+      60:	0c 94 66 04 	jmp	0x8cc	; 0x8cc <__bad_interrupt>
+      64:	0c 94 66 04 	jmp	0x8cc	; 0x8cc <__bad_interrupt>
+      68:	64 07       	cpc	r22, r20
+      6a:	38 07       	cpc	r19, r24
+      6c:	3c 07       	cpc	r19, r28
+      6e:	bf 06       	cpc	r11, r31
+      70:	cc 06       	cpc	r12, r28
+      72:	d8 06       	cpc	r13, r24
+      74:	e5 06       	cpc	r14, r21
+      76:	f1 06       	cpc	r15, r17
+      78:	fe 06       	cpc	r15, r30
+      7a:	0a 07       	cpc	r16, r26
+      7c:	17 07       	cpc	r17, r23
+      7e:	23 07       	cpc	r18, r19
+      80:	2e 07       	cpc	r18, r30
+      82:	6a 07       	cpc	r22, r26
+      84:	6a 07       	cpc	r22, r26
+      86:	40 07       	cpc	r20, r16
+      88:	44 07       	cpc	r20, r20
+      8a:	48 07       	cpc	r20, r24
+      8c:	6a 07       	cpc	r22, r26
+      8e:	4c 07       	cpc	r20, r28
+      90:	58 07       	cpc	r21, r24
+
+00000092 <OCR_Array>:
+      92:	ff 03 fd 03 fa 03 f8 03 f6 03 f4 03 f2 03 f0 03     ................
+      a2:	ee 03 ed 03 eb 03 ea 03 e9 03 e8 03 e8 03 e7 03     ................
+      b2:	e7 03 e6 03 e6 03 e6 03 e5 03 e5 03 e5 03 e5 03     ................
+      c2:	e4 03 e4 03 e4 03 e4 03 e3 03 e3 03 e3 03 e3 03     ................
+      d2:	e2 03 e2 03 e2 03 e2 03 e1 03 e1 03 e1 03 e1 03     ................
+      e2:	e0 03 e0 03 e0 03 e0 03 df 03 df 03 df 03 df 03     ................
+      f2:	de 03 de 03 de 03 de 03 dd 03 dd 03 dd 03 dd 03     ................
+     102:	dc 03 dc 03 dc 03 dc 03 db 03 db 03 db 03 db 03     ................
+     112:	da 03 da 03 da 03 da 03 d9 03 d9 03 d9 03 d9 03     ................
+     122:	d8 03 d8 03 d8 03 d8 03 d7 03 d7 03 d7 03 d7 03     ................
+     132:	d6 03 d6 03 d6 03 d6 03 d5 03 d5 03 d5 03 d5 03     ................
+     142:	d4 03 d4 03 d4 03 d4 03 d3 03 d3 03 d3 03 d3 03     ................
+     152:	d2 03 d2 03 d2 03 d2 03 d1 03 d1 03 d1 03 d1 03     ................
+     162:	d0 03 d0 03 d0 03 d0 03 cf 03 cf 03 cf 03 cf 03     ................
+     172:	ce 03 ce 03 ce 03 ce 03 cd 03 cd 03 cd 03 cd 03     ................
+     182:	cc 03 cc 03 cc 03 cc 03 cb 03 cb 03 cb 03 cb 03     ................
+     192:	ca 03 ca 03 ca 03 ca 03 c9 03 c9 03 c9 03 c8 03     ................
+     1a2:	c8 03 c8 03 c8 03 c7 03 c7 03 c7 03 c7 03 c6 03     ................
+     1b2:	c6 03 c6 03 c6 03 c5 03 c5 03 c5 03 c4 03 c4 03     ................
+     1c2:	c4 03 c4 03 c3 03 c3 03 c3 03 c3 03 c2 03 c2 03     ................
+     1d2:	c2 03 c1 03 c1 03 c1 03 c1 03 c0 03 c0 03 c0 03     ................
+     1e2:	c0 03 bf 03 bf 03 bf 03 be 03 be 03 be 03 be 03     ................
+     1f2:	bd 03 bd 03 bd 03 bc 03 bc 03 bc 03 bc 03 bb 03     ................
+     202:	bb 03 bb 03 ba 03 ba 03 ba 03 b9 03 b9 03 b9 03     ................
+     212:	b9 03 b8 03 b8 03 b8 03 b7 03 b7 03 b7 03 b7 03     ................
+     222:	b6 03 b6 03 b6 03 b5 03 b5 03 b5 03 b4 03 b4 03     ................
+     232:	b4 03 b3 03 b3 03 b3 03 b3 03 b2 03 b2 03 b2 03     ................
+     242:	b1 03 b1 03 b1 03 b0 03 b0 03 b0 03 af 03 af 03     ................
+     252:	af 03 ae 03 ae 03 ae 03 ad 03 ad 03 ad 03 ac 03     ................
+     262:	ac 03 ac 03 ab 03 ab 03 ab 03 aa 03 aa 03 aa 03     ................
+     272:	a9 03 a9 03 a9 03 a8 03 a8 03 a8 03 a7 03 a7 03     ................
+     282:	a7 03 a6 03 a6 03 a6 03 a5 03 a5 03 a5 03 a4 03     ................
+     292:	a4 03 a4 03 a3 03 a3 03 a3 03 a2 03 a2 03 a1 03     ................
+     2a2:	a1 03 a1 03 a0 03 a0 03 a0 03 9f 03 9f 03 9f 03     ................
+     2b2:	9e 03 9e 03 9d 03 9d 03 9d 03 9c 03 9c 03 9c 03     ................
+     2c2:	9b 03 9b 03 9a 03 9a 03 9a 03 99 03 99 03 98 03     ................
+     2d2:	98 03 98 03 97 03 97 03 97 03 96 03 96 03 95 03     ................
+     2e2:	95 03 95 03 94 03 94 03 93 03 93 03 93 03 92 03     ................
+     2f2:	92 03 91 03 91 03 90 03 90 03 90 03 8f 03 8f 03     ................
+     302:	8e 03 8e 03 8e 03 8d 03 8d 03 8c 03 8c 03 8b 03     ................
+     312:	8b 03 8b 03 8a 03 8a 03 89 03 89 03 88 03 88 03     ................
+     322:	87 03 87 03 87 03 86 03 86 03 85 03 85 03 84 03     ................
+     332:	84 03 83 03 83 03 83 03 82 03 82 03 81 03 81 03     ................
+     342:	80 03 80 03 7f 03 7f 03 7e 03 7e 03 7d 03 7d 03     ........~.~.}.}.
+     352:	7c 03 7c 03 7b 03 7b 03 7b 03 7a 03 7a 03 79 03     |.|.{.{.{.z.z.y.
+     362:	79 03 78 03 78 03 77 03 77 03 76 03 76 03 75 03     y.x.x.w.w.v.v.u.
+     372:	75 03 74 03 74 03 73 03 73 03 72 03 72 03 71 03     u.t.t.s.s.r.r.q.
+     382:	70 03 70 03 6f 03 6f 03 6e 03 6e 03 6d 03 6d 03     p.p.o.o.n.n.m.m.
+     392:	6c 03 6c 03 6b 03 6b 03 6a 03 6a 03 69 03 69 03     l.l.k.k.j.j.i.i.
+     3a2:	68 03 67 03 67 03 66 03 66 03 65 03 65 03 64 03     h.g.g.f.f.e.e.d.
+     3b2:	64 03 63 03 62 03 62 03 61 03 61 03 60 03 60 03     d.c.b.b.a.a.`.`.
+     3c2:	5f 03 5e 03 5e 03 5d 03 5d 03 5c 03 5c 03 5b 03     _.^.^.].].\.\.[.
+     3d2:	5a 03 5a 03 59 03 59 03 58 03 57 03 57 03 56 03     Z.Z.Y.Y.X.W.W.V.
+     3e2:	56 03 55 03 54 03 54 03 53 03 53 03 52 03 51 03     V.U.T.T.S.S.R.Q.
+     3f2:	51 03 50 03 50 03 4f 03 4e 03 4e 03 4d 03 4c 03     Q.P.P.O.N.N.M.L.
+     402:	4c 03 4b 03 4a 03 4a 03 49 03 49 03 48 03 47 03     L.K.J.J.I.I.H.G.
+     412:	47 03 46 03 45 03 45 03 44 03 43 03 43 03 42 03     G.F.E.E.D.C.C.B.
+     422:	41 03 41 03 40 03 3f 03 3f 03 3e 03 3d 03 3d 03     A.A.@.?.?.>.=.=.
+     432:	3c 03 3b 03 3b 03 3a 03 39 03 38 03 38 03 37 03     <.;.;.:.9.8.8.7.
+     442:	36 03 36 03 35 03 34 03 34 03 33 03 32 03 31 03     6.6.5.4.4.3.2.1.
+     452:	31 03 30 03 2f 03 2f 03 2e 03 2d 03 2c 03 2c 03     1.0././...-.,.,.
+     462:	2b 03 2a 03 29 03 29 03 28 03 27 03 26 03 26 03     +.*.).).(.'.&.&.
+     472:	25 03 24 03 23 03 23 03 22 03 21 03 20 03 1f 03     %.$.#.#.".!. ...
+     482:	1f 03 1e 03 1d 03 1c 03 1c 03 1b 03 1a 03 19 03     ................
+     492:	18 03 18 03 17 03 16 03 15 03 14 03 14 03 13 03     ................
+     4a2:	12 03 11 03 10 03 10 03 0f 03 0e 03 0d 03 0c 03     ................
+     4b2:	0b 03 0b 03 0a 03 09 03 08 03 07 03 06 03 05 03     ................
+     4c2:	05 03 04 03 03 03 02 03 01 03 00 03 ff 02 ff 02     ................
+     4d2:	fe 02 fd 02 fc 02 fb 02 fa 02 f9 02 f8 02 f7 02     ................
+     4e2:	f7 02 f6 02 f5 02 f4 02 f3 02 f2 02 f1 02 f0 02     ................
+     4f2:	ef 02 ee 02 ed 02 ed 02 ec 02 eb 02 ea 02 e9 02     ................
+     502:	e8 02 e7 02 e6 02 e5 02 e4 02 e3 02 e2 02 e1 02     ................
+     512:	e0 02 df 02 de 02 dd 02 dc 02 db 02 da 02 d9 02     ................
+     522:	d8 02 d7 02 d6 02 d5 02 d4 02 d3 02 d2 02 d1 02     ................
+     532:	d0 02 cf 02 ce 02 cd 02 cc 02 cb 02 ca 02 c9 02     ................
+     542:	c8 02 c7 02 c6 02 c5 02 c4 02 c3 02 c2 02 c1 02     ................
+     552:	c0 02 bf 02 be 02 bd 02 bc 02 bb 02 b9 02 b8 02     ................
+     562:	b7 02 b6 02 b5 02 b4 02 b3 02 b2 02 b1 02 b0 02     ................
+     572:	af 02 ad 02 ac 02 ab 02 aa 02 a9 02 a8 02 a7 02     ................
+     582:	a6 02 a4 02 a3 02 a2 02 a1 02 a0 02 9f 02 9e 02     ................
+     592:	9c 02 9b 02 9a 02 99 02 98 02 97 02 95 02 94 02     ................
+     5a2:	93 02 92 02 91 02 8f 02 8e 02 8d 02 8c 02 8b 02     ................
+     5b2:	89 02 88 02 87 02 86 02 85 02 83 02 82 02 81 02     ................
+     5c2:	80 02 7e 02 7d 02 7c 02 7b 02 79 02 78 02 77 02     ..~.}.|.{.y.x.w.
+     5d2:	76 02 74 02 73 02 72 02 71 02 6f 02 6e 02 6d 02     v.t.s.r.q.o.n.m.
+     5e2:	6b 02 6a 02 69 02 67 02 66 02 65 02 64 02 62 02     k.j.i.g.f.e.d.b.
+     5f2:	61 02 60 02 5e 02 5d 02 5c 02 5a 02 59 02 58 02     a.`.^.].\.Z.Y.X.
+     602:	56 02 55 02 54 02 52 02 51 02 4f 02 4e 02 4d 02     V.U.T.R.Q.O.N.M.
+     612:	4b 02 4a 02 49 02 47 02 46 02 44 02 43 02 42 02     K.J.I.G.F.D.C.B.
+     622:	40 02 3f 02 3d 02 3c 02 3b 02 39 02 38 02 36 02     @.?.=.<.;.9.8.6.
+     632:	35 02 33 02 32 02 30 02 2f 02 2e 02 2c 02 2b 02     5.3.2.0./...,.+.
+     642:	29 02 28 02 26 02 25 02 23 02 22 02 20 02 1f 02     ).(.&.%.#.". ...
+     652:	1d 02 1c 02 1a 02 19 02 17 02 16 02 14 02 13 02     ................
+     662:	11 02 10 02 0e 02 0d 02 0b 02 0a 02 08 02 06 02     ................
+     672:	05 02 03 02 02 02 00 02 ff 01 fd 01 fb 01 fa 01     ................
+     682:	f8 01 f7 01 f5 01 f4 01 f2 01 f0 01 ef 01 ed 01     ................
+     692:	eb 01 ea 01 e8 01 e7 01 e5 01 e3 01 e2 01 e0 01     ................
+     6a2:	de 01 dd 01 db 01 d9 01 d8 01 d6 01 d4 01 d3 01     ................
+     6b2:	d1 01 cf 01 ce 01 cc 01 ca 01 c9 01 c7 01 c5 01     ................
+     6c2:	c4 01 c2 01 c0 01 be 01 bd 01 bb 01 b9 01 b8 01     ................
+     6d2:	b6 01 b4 01 b2 01 b1 01 af 01 ad 01 ab 01 aa 01     ................
+     6e2:	a8 01 a6 01 a4 01 a3 01 a1 01 9f 01 9d 01 9c 01     ................
+     6f2:	9a 01 98 01 96 01 95 01 93 01 91 01 8f 01 8d 01     ................
+     702:	8c 01 8a 01 88 01 86 01 84 01 83 01 81 01 7f 01     ................
+     712:	7d 01 7b 01 79 01 78 01 76 01 74 01 72 01 70 01     }.{.y.x.v.t.r.p.
+     722:	6e 01 6d 01 6b 01 69 01 67 01 65 01 63 01 61 01     n.m.k.i.g.e.c.a.
+     732:	60 01 5e 01 5c 01 5a 01 58 01 56 01 54 01 52 01     `.^.\.Z.X.V.T.R.
+     742:	51 01 4f 01 4d 01 4b 01 49 01 47 01 45 01 43 01     Q.O.M.K.I.G.E.C.
+     752:	41 01 40 01 3e 01 3c 01 3a 01 38 01 36 01 34 01     A.@.>.<.:.8.6.4.
+     762:	32 01 30 01 2e 01 2c 01 2a 01 29 01 27 01 25 01     2.0...,.*.).'.%.
+     772:	23 01 21 01 1f 01 1d 01 1b 01 19 01 17 01 15 01     #.!.............
+     782:	13 01 11 01 0f 01 0d 01 0b 01 09 01 07 01 05 01     ................
+     792:	04 01 02 01 00 01 fe 00 fc 00 fa 00 f8 00 f6 00     ................
+     7a2:	f4 00 f2 00 f0 00 ee 00 ec 00 ea 00 e8 00 e6 00     ................
+     7b2:	e4 00 e2 00 e0 00 de 00 dc 00 da 00 d8 00 d6 00     ................
+     7c2:	d4 00 d2 00 d0 00 ce 00 cc 00 ca 00 c8 00 c6 00     ................
+     7d2:	c4 00 c2 00 c0 00 be 00 bc 00 ba 00 b8 00 b6 00     ................
+     7e2:	b4 00 b2 00 af 00 ad 00 ab 00 a9 00 a7 00 a5 00     ................
+     7f2:	a3 00 a1 00 9f 00 9d 00 9b 00 99 00 97 00 95 00     ................
+     802:	93 00 91 00 8f 00 8d 00 8b 00 89 00 87 00 85 00     ................
+     812:	83 00 81 00 7e 00 7c 00 7a 00 78 00 76 00 74 00     ....~.|.z.x.v.t.
+     822:	72 00 70 00 6e 00 6c 00 6a 00 68 00 66 00 64 00     r.p.n.l.j.h.f.d.
+     832:	62 00 60 00 5d 00 5b 00 59 00 57 00 55 00 53 00     b.`.].[.Y.W.U.S.
+     842:	51 00 4f 00 4d 00 4b 00 49 00 47 00 45 00 43 00     Q.O.M.K.I.G.E.C.
+     852:	40 00 3e 00 3c 00 3a 00 38 00 36 00 34 00 32 00     @.>.<.:.8.6.4.2.
+     862:	30 00 2e 00 2c 00 2a 00 28 00 25 00 23 00 21 00     0...,.*.(.%.#.!.
+     872:	1f 00 1d 00 1b 00 19 00 17 00 15 00 13 00 11 00     ................
+     882:	0f 00 0c 00 0a 00 08 00 06 00 04 00 02 00 00 00     ................
+
+00000892 <__ctors_end>:
+     892:	11 24       	eor	r1, r1
+     894:	1f be       	out	0x3f, r1	; 63
+     896:	cf ef       	ldi	r28, 0xFF	; 255
+     898:	d8 e0       	ldi	r29, 0x08	; 8
+     89a:	de bf       	out	0x3e, r29	; 62
+     89c:	cd bf       	out	0x3d, r28	; 61
+
+0000089e <__do_copy_data>:
+     89e:	11 e0       	ldi	r17, 0x01	; 1
+     8a0:	a0 e0       	ldi	r26, 0x00	; 0
+     8a2:	b1 e0       	ldi	r27, 0x01	; 1
+     8a4:	e0 eb       	ldi	r30, 0xB0	; 176
+     8a6:	f3 e1       	ldi	r31, 0x13	; 19
+     8a8:	02 c0       	rjmp	.+4      	; 0x8ae <__do_copy_data+0x10>
+     8aa:	05 90       	lpm	r0, Z+
+     8ac:	0d 92       	st	X+, r0
+     8ae:	ac 32       	cpi	r26, 0x2C	; 44
+     8b0:	b1 07       	cpc	r27, r17
+     8b2:	d9 f7       	brne	.-10     	; 0x8aa <__do_copy_data+0xc>
+
+000008b4 <__do_clear_bss>:
+     8b4:	21 e0       	ldi	r18, 0x01	; 1
+     8b6:	ac e2       	ldi	r26, 0x2C	; 44
+     8b8:	b1 e0       	ldi	r27, 0x01	; 1
+     8ba:	01 c0       	rjmp	.+2      	; 0x8be <.do_clear_bss_start>
+
+000008bc <.do_clear_bss_loop>:
+     8bc:	1d 92       	st	X+, r1
+
+000008be <.do_clear_bss_start>:
+     8be:	a0 36       	cpi	r26, 0x60	; 96
+     8c0:	b2 07       	cpc	r27, r18
+     8c2:	e1 f7       	brne	.-8      	; 0x8bc <.do_clear_bss_loop>
+     8c4:	0e 94 47 09 	call	0x128e	; 0x128e <main>
+     8c8:	0c 94 d6 09 	jmp	0x13ac	; 0x13ac <_exit>
+
+000008cc <__bad_interrupt>:
+     8cc:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000008d0 <toggleEdgeInterrupt>:
+}
+
+ void toggleEdgeInterrupt(void)
+{
+	//ustaw wykrywanie zbocza przeciwnego do aktualnie ustawionego
+	EICRA ^= (1<<ISC00);
+     8d0:	e9 e6       	ldi	r30, 0x69	; 105
+     8d2:	f0 e0       	ldi	r31, 0x00	; 0
+     8d4:	90 81       	ld	r25, Z
+     8d6:	81 e0       	ldi	r24, 0x01	; 1
+     8d8:	89 27       	eor	r24, r25
+     8da:	80 83       	st	Z, r24
+     8dc:	08 95       	ret
+
+000008de <initTimer2_50us>:
+
+
+void initTimer2_50us()
+{
+	//setup timer for 50us
+	TCCR2A = (1 << WGM21); // CTC
+     8de:	82 e0       	ldi	r24, 0x02	; 2
+     8e0:	80 93 b0 00 	sts	0x00B0, r24
+	TCCR2B =  (1 << CS21); // Preskaler 8
+     8e4:	80 93 b1 00 	sts	0x00B1, r24
+	TIMSK2 = (1 << OCIE2A); // Compare Match A enabled
+     8e8:	80 93 70 00 	sts	0x0070, r24
+	//OCR2A = 199;
+	OCR2A = (F_CPU/(20000L*8))-1;
+     8ec:	83 e6       	ldi	r24, 0x63	; 99
+     8ee:	80 93 b3 00 	sts	0x00B3, r24
+     8f2:	08 95       	ret
+
+000008f4 <initINT0>:
+}
+
+
+void initINT0()
+{
+	IrDDR  &= ~(1<<Ir); // Jako wejœcie
+     8f4:	52 98       	cbi	0x0a, 2	; 10
+	IrPort &= ~(1<<Ir); // Bez podci¹gniêtego rezystora
+     8f6:	5a 98       	cbi	0x0b, 2	; 11
+	
+	EICRA |= (1<<ISC01); //wykrywanie zbocza opadaj¹cego
+     8f8:	e9 e6       	ldi	r30, 0x69	; 105
+     8fa:	f0 e0       	ldi	r31, 0x00	; 0
+     8fc:	80 81       	ld	r24, Z
+     8fe:	82 60       	ori	r24, 0x02	; 2
+     900:	80 83       	st	Z, r24
+	EIMSK  |= (1<<INT0); // W³¹cz przerwanie INT0
+     902:	e8 9a       	sbi	0x1d, 0	; 29
+     904:	08 95       	ret
+
+00000906 <__vector_1>:
+		 }
+	 }
+}
+
+ISR(INT0_vect)
+{
+     906:	1f 92       	push	r1
+     908:	0f 92       	push	r0
+     90a:	0f b6       	in	r0, 0x3f	; 63
+     90c:	0f 92       	push	r0
+     90e:	11 24       	eor	r1, r1
+     910:	2f 93       	push	r18
+     912:	3f 93       	push	r19
+     914:	4f 93       	push	r20
+     916:	5f 93       	push	r21
+     918:	6f 93       	push	r22
+     91a:	7f 93       	push	r23
+     91c:	8f 93       	push	r24
+     91e:	9f 93       	push	r25
+     920:	af 93       	push	r26
+     922:	bf 93       	push	r27
+     924:	ef 93       	push	r30
+     926:	ff 93       	push	r31
+	edgeDirection = EICRA & (1<<ISC00); // Przypisanie edgeDirection wartoœci bitu ICS00 (0 - przerwanie wprzy zboczu opadaj¹cym, 1 - przerwanie przy zboczu narastaj¹cym)
+     928:	80 91 69 00 	lds	r24, 0x0069
+     92c:	81 70       	andi	r24, 0x01	; 1
+     92e:	80 93 49 01 	sts	0x0149, r24
+	if(allowEdgeFlag)
+     932:	80 91 48 01 	lds	r24, 0x0148
+     936:	88 23       	and	r24, r24
+     938:	29 f0       	breq	.+10     	; 0x944 <__vector_1+0x3e>
+	{
+		toggleEdgeInterrupt();
+     93a:	0e 94 68 04 	call	0x8d0	; 0x8d0 <toggleEdgeInterrupt>
+		edge_Flag = 1;
+     93e:	81 e0       	ldi	r24, 0x01	; 1
+     940:	80 93 36 01 	sts	0x0136, r24
+	}
+	
+}
+     944:	ff 91       	pop	r31
+     946:	ef 91       	pop	r30
+     948:	bf 91       	pop	r27
+     94a:	af 91       	pop	r26
+     94c:	9f 91       	pop	r25
+     94e:	8f 91       	pop	r24
+     950:	7f 91       	pop	r23
+     952:	6f 91       	pop	r22
+     954:	5f 91       	pop	r21
+     956:	4f 91       	pop	r20
+     958:	3f 91       	pop	r19
+     95a:	2f 91       	pop	r18
+     95c:	0f 90       	pop	r0
+     95e:	0f be       	out	0x3f, r0	; 63
+     960:	0f 90       	pop	r0
+     962:	1f 90       	pop	r1
+     964:	18 95       	reti
+
+00000966 <resetFrameReading>:
+	}
+}
+
+void resetFrameReading ()
+{ 
+	IrState = STANDBY;
+     966:	10 92 2c 01 	sts	0x012C, r1
+	bitIndex = 7;
+     96a:	87 e0       	ldi	r24, 0x07	; 7
+     96c:	80 93 4a 01 	sts	0x014A, r24
+	byteIndex = ADDRESS_LB_INDEX;
+     970:	10 92 37 01 	sts	0x0137, r1
+	confirmedCommand = NO_COMMAND;
+     974:	10 92 47 01 	sts	0x0147, r1
+	EICRA |= (1<<ISC01); //wykrywanie zbocza opadaj¹cego
+     978:	e9 e6       	ldi	r30, 0x69	; 105
+     97a:	f0 e0       	ldi	r31, 0x00	; 0
+     97c:	80 81       	ld	r24, Z
+     97e:	82 60       	ori	r24, 0x02	; 2
+     980:	80 83       	st	Z, r24
+	EIMSK  |= (1<<INT0); // W³¹cz przerwanie INT0
+     982:	e8 9a       	sbi	0x1d, 0	; 29
+	allowEdgeFlag = 1;
+     984:	81 e0       	ldi	r24, 0x01	; 1
+     986:	80 93 48 01 	sts	0x0148, r24
+	
+	// Zerowanie bajtów ramki
+	for (uint8_t i=0;i<4;i++)
+	{
+		frameBytes[i] = 0x00;
+     98a:	10 92 3f 01 	sts	0x013F, r1
+     98e:	10 92 40 01 	sts	0x0140, r1
+     992:	10 92 41 01 	sts	0x0141, r1
+     996:	10 92 42 01 	sts	0x0142, r1
+     99a:	08 95       	ret
+
+0000099c <initIrNEC>:
+
+
+
+void initIrNEC ()
+{
+	edge_Flag = 0;
+     99c:	10 92 36 01 	sts	0x0136, r1
+	edgeDirection = FALLING;// ?
+     9a0:	10 92 49 01 	sts	0x0149, r1
+	runningTime = 0;
+     9a4:	10 92 35 01 	sts	0x0135, r1
+     9a8:	10 92 34 01 	sts	0x0134, r1
+	transmissionTime = 0;
+     9ac:	10 92 50 01 	sts	0x0150, r1
+     9b0:	10 92 4f 01 	sts	0x014F, r1
+	measuredTime = 0;
+     9b4:	10 92 39 01 	sts	0x0139, r1
+     9b8:	10 92 38 01 	sts	0x0138, r1
+	commandsTableSize = sizeof(commandsTable)/sizeof(commandsTable[0]);
+     9bc:	86 e1       	ldi	r24, 0x16	; 22
+     9be:	80 93 3e 01 	sts	0x013E, r24
+	
+	initTimer2_50us();
+     9c2:	0e 94 6f 04 	call	0x8de	; 0x8de <initTimer2_50us>
+	initINT0();
+     9c6:	0e 94 7a 04 	call	0x8f4	; 0x8f4 <initINT0>
+	resetFrameReading();
+     9ca:	0e 94 b3 04 	call	0x966	; 0x966 <resetFrameReading>
+	sei();
+     9ce:	78 94       	sei
+     9d0:	08 95       	ret
+
+000009d2 <__vector_7>:
+	EIMSK  |= (1<<INT0); // W³¹cz przerwanie INT0
+}
+
+
+ ISR(TIMER2_COMPA_vect)
+{
+     9d2:	1f 92       	push	r1
+     9d4:	0f 92       	push	r0
+     9d6:	0f b6       	in	r0, 0x3f	; 63
+     9d8:	0f 92       	push	r0
+     9da:	11 24       	eor	r1, r1
+     9dc:	2f 93       	push	r18
+     9de:	3f 93       	push	r19
+     9e0:	4f 93       	push	r20
+     9e2:	5f 93       	push	r21
+     9e4:	6f 93       	push	r22
+     9e6:	7f 93       	push	r23
+     9e8:	8f 93       	push	r24
+     9ea:	9f 93       	push	r25
+     9ec:	af 93       	push	r26
+     9ee:	bf 93       	push	r27
+     9f0:	ef 93       	push	r30
+     9f2:	ff 93       	push	r31
+	runningTime++;
+     9f4:	80 91 34 01 	lds	r24, 0x0134
+     9f8:	90 91 35 01 	lds	r25, 0x0135
+     9fc:	01 96       	adiw	r24, 0x01	; 1
+     9fe:	90 93 35 01 	sts	0x0135, r25
+     a02:	80 93 34 01 	sts	0x0134, r24
+ 	transmissionTime++;
+     a06:	80 91 4f 01 	lds	r24, 0x014F
+     a0a:	90 91 50 01 	lds	r25, 0x0150
+     a0e:	01 96       	adiw	r24, 0x01	; 1
+     a10:	90 93 50 01 	sts	0x0150, r25
+     a14:	80 93 4f 01 	sts	0x014F, r24
+	 
+	 
+	//********** potrzebne tylko do œciemniania ***********
+	dimmTimeTick_CH1++; 
+     a18:	80 91 2d 01 	lds	r24, 0x012D
+     a1c:	90 91 2e 01 	lds	r25, 0x012E
+     a20:	a0 91 2f 01 	lds	r26, 0x012F
+     a24:	b0 91 30 01 	lds	r27, 0x0130
+     a28:	01 96       	adiw	r24, 0x01	; 1
+     a2a:	a1 1d       	adc	r26, r1
+     a2c:	b1 1d       	adc	r27, r1
+     a2e:	80 93 2d 01 	sts	0x012D, r24
+     a32:	90 93 2e 01 	sts	0x012E, r25
+     a36:	a0 93 2f 01 	sts	0x012F, r26
+     a3a:	b0 93 30 01 	sts	0x0130, r27
+	if (dimmTimeTick_CH1 == dimmStepWidth_CH1)
+     a3e:	40 91 2d 01 	lds	r20, 0x012D
+     a42:	50 91 2e 01 	lds	r21, 0x012E
+     a46:	60 91 2f 01 	lds	r22, 0x012F
+     a4a:	70 91 30 01 	lds	r23, 0x0130
+     a4e:	80 91 43 01 	lds	r24, 0x0143
+     a52:	90 91 44 01 	lds	r25, 0x0144
+     a56:	a0 91 45 01 	lds	r26, 0x0145
+     a5a:	b0 91 46 01 	lds	r27, 0x0146
+     a5e:	48 17       	cp	r20, r24
+     a60:	59 07       	cpc	r21, r25
+     a62:	6a 07       	cpc	r22, r26
+     a64:	7b 07       	cpc	r23, r27
+     a66:	59 f4       	brne	.+22     	; 0xa7e <__vector_7+0xac>
+	{
+		dimmTimeTick_CH1 = 0;
+     a68:	10 92 2d 01 	sts	0x012D, r1
+     a6c:	10 92 2e 01 	sts	0x012E, r1
+     a70:	10 92 2f 01 	sts	0x012F, r1
+     a74:	10 92 30 01 	sts	0x0130, r1
+		doDimmStepFlag_CH1 = 1;
+     a78:	81 e0       	ldi	r24, 0x01	; 1
+     a7a:	80 93 31 01 	sts	0x0131, r24
+	}
+	dimmTimeTick_CH2++;
+     a7e:	80 91 3a 01 	lds	r24, 0x013A
+     a82:	90 91 3b 01 	lds	r25, 0x013B
+     a86:	a0 91 3c 01 	lds	r26, 0x013C
+     a8a:	b0 91 3d 01 	lds	r27, 0x013D
+     a8e:	01 96       	adiw	r24, 0x01	; 1
+     a90:	a1 1d       	adc	r26, r1
+     a92:	b1 1d       	adc	r27, r1
+     a94:	80 93 3a 01 	sts	0x013A, r24
+     a98:	90 93 3b 01 	sts	0x013B, r25
+     a9c:	a0 93 3c 01 	sts	0x013C, r26
+     aa0:	b0 93 3d 01 	sts	0x013D, r27
+	if (dimmTimeTick_CH2 == dimmStepWidth_CH2)
+     aa4:	40 91 3a 01 	lds	r20, 0x013A
+     aa8:	50 91 3b 01 	lds	r21, 0x013B
+     aac:	60 91 3c 01 	lds	r22, 0x013C
+     ab0:	70 91 3d 01 	lds	r23, 0x013D
+     ab4:	80 91 4b 01 	lds	r24, 0x014B
+     ab8:	90 91 4c 01 	lds	r25, 0x014C
+     abc:	a0 91 4d 01 	lds	r26, 0x014D
+     ac0:	b0 91 4e 01 	lds	r27, 0x014E
+     ac4:	48 17       	cp	r20, r24
+     ac6:	59 07       	cpc	r21, r25
+     ac8:	6a 07       	cpc	r22, r26
+     aca:	7b 07       	cpc	r23, r27
+     acc:	59 f4       	brne	.+22     	; 0xae4 <__vector_7+0x112>
+	{
+		dimmTimeTick_CH2 = 0;
+     ace:	10 92 3a 01 	sts	0x013A, r1
+     ad2:	10 92 3b 01 	sts	0x013B, r1
+     ad6:	10 92 3c 01 	sts	0x013C, r1
+     ada:	10 92 3d 01 	sts	0x013D, r1
+		doDimmStepFlag_CH2 = 1;
+     ade:	81 e0       	ldi	r24, 0x01	; 1
+     ae0:	80 93 51 01 	sts	0x0151, r24
+	}
+	//**************************************************
+	
+	
+	 if (IrState == WAIT_500ms)
+     ae4:	80 91 2c 01 	lds	r24, 0x012C
+     ae8:	83 30       	cpi	r24, 0x03	; 3
+     aea:	49 f4       	brne	.+18     	; 0xafe <__vector_7+0x12c>
+	 {
+		 if(transmissionTime == TIME_MAX_500ms) 
+     aec:	80 91 4f 01 	lds	r24, 0x014F
+     af0:	90 91 50 01 	lds	r25, 0x0150
+     af4:	84 37       	cpi	r24, 0x74	; 116
+     af6:	97 42       	sbci	r25, 0x27	; 39
+     af8:	11 f4       	brne	.+4      	; 0xafe <__vector_7+0x12c>
+		 {
+			 resetFrameReading();
+     afa:	0e 94 b3 04 	call	0x966	; 0x966 <resetFrameReading>
+		 }
+	 }
+	 
+	 if (IrState == WAIT)
+     afe:	80 91 2c 01 	lds	r24, 0x012C
+     b02:	84 30       	cpi	r24, 0x04	; 4
+     b04:	a9 f4       	brne	.+42     	; 0xb30 <__vector_7+0x15e>
+	 {
+		 if(transmissionTime == TIME_INT0_RESTORE_108ms)  
+     b06:	80 91 4f 01 	lds	r24, 0x014F
+     b0a:	90 91 50 01 	lds	r25, 0x0150
+     b0e:	88 34       	cpi	r24, 0x48	; 72
+     b10:	98 40       	sbci	r25, 0x08	; 8
+     b12:	29 f4       	brne	.+10     	; 0xb1e <__vector_7+0x14c>
+		 {
+			 edge_Flag = 0;
+     b14:	10 92 36 01 	sts	0x0136, r1
+			 allowEdgeFlag = 1;
+     b18:	81 e0       	ldi	r24, 0x01	; 1
+     b1a:	80 93 48 01 	sts	0x0148, r24
+		 }
+		 if(transmissionTime == TIME_MAX_108ms) 
+     b1e:	80 91 4f 01 	lds	r24, 0x014F
+     b22:	90 91 50 01 	lds	r25, 0x0150
+     b26:	80 3c       	cpi	r24, 0xC0	; 192
+     b28:	98 40       	sbci	r25, 0x08	; 8
+     b2a:	11 f4       	brne	.+4      	; 0xb30 <__vector_7+0x15e>
+		 {
+			 resetFrameReading();
+     b2c:	0e 94 b3 04 	call	0x966	; 0x966 <resetFrameReading>
+		 }
+	 }
+}
+     b30:	ff 91       	pop	r31
+     b32:	ef 91       	pop	r30
+     b34:	bf 91       	pop	r27
+     b36:	af 91       	pop	r26
+     b38:	9f 91       	pop	r25
+     b3a:	8f 91       	pop	r24
+     b3c:	7f 91       	pop	r23
+     b3e:	6f 91       	pop	r22
+     b40:	5f 91       	pop	r21
+     b42:	4f 91       	pop	r20
+     b44:	3f 91       	pop	r19
+     b46:	2f 91       	pop	r18
+     b48:	0f 90       	pop	r0
+     b4a:	0f be       	out	0x3f, r0	; 63
+     b4c:	0f 90       	pop	r0
+     b4e:	1f 90       	pop	r1
+     b50:	18 95       	reti
+
+00000b52 <decodeNECframe>:
+}
+
+
+void decodeNECframe()
+{
+	switch (IrState)
+     b52:	80 91 2c 01 	lds	r24, 0x012C
+     b56:	82 30       	cpi	r24, 0x02	; 2
+     b58:	09 f4       	brne	.+2      	; 0xb5c <decodeNECframe+0xa>
+     b5a:	49 c0       	rjmp	.+146    	; 0xbee <decodeNECframe+0x9c>
+     b5c:	28 f4       	brcc	.+10     	; 0xb68 <decodeNECframe+0x16>
+     b5e:	88 23       	and	r24, r24
+     b60:	61 f0       	breq	.+24     	; 0xb7a <decodeNECframe+0x28>
+     b62:	81 30       	cpi	r24, 0x01	; 1
+     b64:	b1 f0       	breq	.+44     	; 0xb92 <decodeNECframe+0x40>
+     b66:	08 95       	ret
+     b68:	84 30       	cpi	r24, 0x04	; 4
+     b6a:	09 f4       	brne	.+2      	; 0xb6e <decodeNECframe+0x1c>
+     b6c:	c3 c0       	rjmp	.+390    	; 0xcf4 <decodeNECframe+0x1a2>
+     b6e:	08 f4       	brcc	.+2      	; 0xb72 <decodeNECframe+0x20>
+     b70:	b1 c0       	rjmp	.+354    	; 0xcd4 <decodeNECframe+0x182>
+     b72:	85 30       	cpi	r24, 0x05	; 5
+     b74:	09 f4       	brne	.+2      	; 0xb78 <decodeNECframe+0x26>
+     b76:	ca c0       	rjmp	.+404    	; 0xd0c <decodeNECframe+0x1ba>
+     b78:	08 95       	ret
+	{
+		case ZAJEZDNIA:
+		break;
+
+		case STANDBY:
+			runningTime = 0;
+     b7a:	10 92 35 01 	sts	0x0135, r1
+     b7e:	10 92 34 01 	sts	0x0134, r1
+			transmissionTime = 0;
+     b82:	10 92 50 01 	sts	0x0150, r1
+     b86:	10 92 4f 01 	sts	0x014F, r1
+			IrState = LEAD_CHECKING;
+     b8a:	81 e0       	ldi	r24, 0x01	; 1
+     b8c:	80 93 2c 01 	sts	0x012C, r24
+		break;
+     b90:	08 95       	ret
+			
+		case LEAD_CHECKING:
+			switch (edgeDirection)
+     b92:	80 91 49 01 	lds	r24, 0x0149
+     b96:	88 23       	and	r24, r24
+     b98:	b9 f0       	breq	.+46     	; 0xbc8 <decodeNECframe+0x76>
+     b9a:	81 30       	cpi	r24, 0x01	; 1
+     b9c:	09 f0       	breq	.+2      	; 0xba0 <decodeNECframe+0x4e>
+     b9e:	ce c0       	rjmp	.+412    	; 0xd3c <decodeNECframe+0x1ea>
+			{
+				case RISING:
+					measuredTime = runningTime;
+     ba0:	80 91 34 01 	lds	r24, 0x0134
+     ba4:	90 91 35 01 	lds	r25, 0x0135
+     ba8:	90 93 39 01 	sts	0x0139, r25
+     bac:	80 93 38 01 	sts	0x0138, r24
+					runningTime = 0;
+     bb0:	10 92 35 01 	sts	0x0135, r1
+     bb4:	10 92 34 01 	sts	0x0134, r1
+					if (measuredTime<(TIME_LEAD_1-TIME_TOLERANCE_LEAD) || measuredTime>(TIME_LEAD_1+TIME_TOLERANCE_LEAD)) // poza 8,5-9,5 ms.
+     bb8:	8a 5a       	subi	r24, 0xAA	; 170
+     bba:	91 09       	sbc	r25, r1
+     bbc:	45 97       	sbiw	r24, 0x15	; 21
+     bbe:	08 f4       	brcc	.+2      	; 0xbc2 <decodeNECframe+0x70>
+     bc0:	bd c0       	rjmp	.+378    	; 0xd3c <decodeNECframe+0x1ea>
+					{
+						resetFrameReading();
+     bc2:	0e 94 b3 04 	call	0x966	; 0x966 <resetFrameReading>
+						return;
+     bc6:	08 95       	ret
+					{
+					}
+				break;
+				
+				case FALLING:
+					measuredTime = runningTime;
+     bc8:	80 91 34 01 	lds	r24, 0x0134
+     bcc:	90 91 35 01 	lds	r25, 0x0135
+     bd0:	90 93 39 01 	sts	0x0139, r25
+     bd4:	80 93 38 01 	sts	0x0138, r24
+					if (measuredTime<(TIME_LEAD_2-TIME_TOLERANCE_LEAD) || measuredTime>(TIME_LEAD_2+TIME_TOLERANCE_LEAD)) // poza 4-5 ms.
+     bd8:	80 55       	subi	r24, 0x50	; 80
+     bda:	91 09       	sbc	r25, r1
+     bdc:	45 97       	sbiw	r24, 0x15	; 21
+     bde:	18 f0       	brcs	.+6      	; 0xbe6 <decodeNECframe+0x94>
+					{
+						resetFrameReading();
+     be0:	0e 94 b3 04 	call	0x966	; 0x966 <resetFrameReading>
+						return;
+     be4:	08 95       	ret
+					}
+					else
+					{
+						IrState = READING_DATA;
+     be6:	82 e0       	ldi	r24, 0x02	; 2
+     be8:	80 93 2c 01 	sts	0x012C, r24
+					}
+				break;
+     bec:	08 95       	ret
+			}					
+		break;
+		
+		case READING_DATA:
+			switch (edgeDirection)
+     bee:	80 91 49 01 	lds	r24, 0x0149
+     bf2:	88 23       	and	r24, r24
+     bf4:	41 f0       	breq	.+16     	; 0xc06 <decodeNECframe+0xb4>
+     bf6:	81 30       	cpi	r24, 0x01	; 1
+     bf8:	09 f0       	breq	.+2      	; 0xbfc <decodeNECframe+0xaa>
+     bfa:	a0 c0       	rjmp	.+320    	; 0xd3c <decodeNECframe+0x1ea>
+			{
+				//-----------
+				case RISING:
+					runningTime = 0;					
+     bfc:	10 92 35 01 	sts	0x0135, r1
+     c00:	10 92 34 01 	sts	0x0134, r1
+				break;
+     c04:	08 95       	ret
+				
+				//-----------
+				case FALLING:
+					measuredTime = runningTime;
+     c06:	80 91 34 01 	lds	r24, 0x0134
+     c0a:	90 91 35 01 	lds	r25, 0x0135
+     c0e:	90 93 39 01 	sts	0x0139, r25
+     c12:	80 93 38 01 	sts	0x0138, r24
+					// Jeœli czas impulsu = 1,6 ms. (+/- toler.) zapisz jedynkê
+					if ((measuredTime>(TIME_ONE-TIME_TOLERANCE_ONES)) && (measuredTime<(TIME_ONE+TIME_TOLERANCE_ONES)))
+     c16:	4f 97       	sbiw	r24, 0x1f	; 31
+     c18:	03 97       	sbiw	r24, 0x03	; 3
+     c1a:	88 f4       	brcc	.+34     	; 0xc3e <decodeNECframe+0xec>
+					{
+						// zapisz "1" do bitu o numerze = bitIndex
+						 frameBytes[byteIndex] |= (1<<(bitIndex));
+     c1c:	e0 91 37 01 	lds	r30, 0x0137
+     c20:	f0 e0       	ldi	r31, 0x00	; 0
+     c22:	e1 5c       	subi	r30, 0xC1	; 193
+     c24:	fe 4f       	sbci	r31, 0xFE	; 254
+     c26:	81 e0       	ldi	r24, 0x01	; 1
+     c28:	90 e0       	ldi	r25, 0x00	; 0
+     c2a:	00 90 4a 01 	lds	r0, 0x014A
+     c2e:	02 c0       	rjmp	.+4      	; 0xc34 <decodeNECframe+0xe2>
+     c30:	88 0f       	add	r24, r24
+     c32:	99 1f       	adc	r25, r25
+     c34:	0a 94       	dec	r0
+     c36:	e2 f7       	brpl	.-8      	; 0xc30 <decodeNECframe+0xde>
+     c38:	90 81       	ld	r25, Z
+     c3a:	89 2b       	or	r24, r25
+     c3c:	80 83       	st	Z, r24
+					}
+					
+					if (bitIndex==0)
+     c3e:	80 91 4a 01 	lds	r24, 0x014A
+     c42:	81 11       	cpse	r24, r1
+     c44:	43 c0       	rjmp	.+134    	; 0xccc <decodeNECframe+0x17a>
+					{
+						// Potwierdzenie bajtów adresu 
+						if (byteIndex == ADDRESS_LB_INDEX && !(REMOTE_ADDRESS_LB == frameBytes[ADDRESS_LB_INDEX]))
+     c46:	50 91 37 01 	lds	r21, 0x0137
+     c4a:	51 11       	cpse	r21, r1
+     c4c:	07 c0       	rjmp	.+14     	; 0xc5c <decodeNECframe+0x10a>
+     c4e:	80 91 3f 01 	lds	r24, 0x013F
+     c52:	82 3f       	cpi	r24, 0xF2	; 242
+     c54:	a1 f1       	breq	.+104    	; 0xcbe <decodeNECframe+0x16c>
+						{
+							resetFrameReading();
+     c56:	0e 94 b3 04 	call	0x966	; 0x966 <resetFrameReading>
+							return;
+     c5a:	08 95       	ret
+						}
+						if (byteIndex == ADDRESS_HB_INDEX && !(REMOTE_ADDRESS_HB == frameBytes[ADDRESS_HB_INDEX]))
+     c5c:	51 30       	cpi	r21, 0x01	; 1
+     c5e:	39 f4       	brne	.+14     	; 0xc6e <decodeNECframe+0x11c>
+     c60:	80 91 40 01 	lds	r24, 0x0140
+     c64:	8a 30       	cpi	r24, 0x0A	; 10
+     c66:	59 f1       	breq	.+86     	; 0xcbe <decodeNECframe+0x16c>
+						{
+							resetFrameReading();
+     c68:	0e 94 b3 04 	call	0x966	; 0x966 <resetFrameReading>
+							return;
+     c6c:	08 95       	ret
+						}
+						
+						if (byteIndex == INV_COMND_BYTE_INDEX)
+     c6e:	53 30       	cpi	r21, 0x03	; 3
+     c70:	31 f5       	brne	.+76     	; 0xcbe <decodeNECframe+0x16c>
+								//return;
+							//}
+							
+							// Wyszukanie komendy pilota, której odpowiada odebrany bajt komendy i przypisanie jej do zmiennej
+							
+							for (uint8_t i=0; i<commandsTableSize;i++)
+     c72:	60 91 3e 01 	lds	r22, 0x013E
+     c76:	66 23       	and	r22, r22
+     c78:	11 f1       	breq	.+68     	; 0xcbe <decodeNECframe+0x16c>
+							{
+								if (commandsTable[i].commandValue == frameBytes[COMMAND_BYTE_INDEX])
+     c7a:	70 91 41 01 	lds	r23, 0x0141
+     c7e:	80 91 00 01 	lds	r24, 0x0100
+     c82:	87 13       	cpse	r24, r23
+     c84:	16 c0       	rjmp	.+44     	; 0xcb2 <decodeNECframe+0x160>
+     c86:	07 c0       	rjmp	.+14     	; 0xc96 <decodeNECframe+0x144>
+     c88:	9c 01       	movw	r18, r24
+     c8a:	40 81       	ld	r20, Z
+     c8c:	01 96       	adiw	r24, 0x01	; 1
+     c8e:	32 96       	adiw	r30, 0x02	; 2
+     c90:	47 13       	cpse	r20, r23
+     c92:	13 c0       	rjmp	.+38     	; 0xcba <decodeNECframe+0x168>
+     c94:	02 c0       	rjmp	.+4      	; 0xc9a <decodeNECframe+0x148>
+     c96:	20 e0       	ldi	r18, 0x00	; 0
+     c98:	30 e0       	ldi	r19, 0x00	; 0
+								{
+									confirmedCommand = commandsTable[i].action;
+     c9a:	f9 01       	movw	r30, r18
+     c9c:	ee 0f       	add	r30, r30
+     c9e:	ff 1f       	adc	r31, r31
+     ca0:	e0 50       	subi	r30, 0x00	; 0
+     ca2:	ff 4f       	sbci	r31, 0xFF	; 255
+     ca4:	81 81       	ldd	r24, Z+1	; 0x01
+     ca6:	80 93 47 01 	sts	0x0147, r24
+									
+									IrState = WAIT_500ms; // Tylko dla Optoma. Normalnie IrState = WAIT;
+     caa:	83 e0       	ldi	r24, 0x03	; 3
+     cac:	80 93 2c 01 	sts	0x012C, r24
+									return;
+     cb0:	08 95       	ret
+     cb2:	e2 e0       	ldi	r30, 0x02	; 2
+     cb4:	f1 e0       	ldi	r31, 0x01	; 1
+							
+							// Wyszukanie komendy pilota, której odpowiada odebrany bajt komendy i przypisanie jej do zmiennej
+							
+							for (uint8_t i=0; i<commandsTableSize;i++)
+							{
+								if (commandsTable[i].commandValue == frameBytes[COMMAND_BYTE_INDEX])
+     cb6:	81 e0       	ldi	r24, 0x01	; 1
+     cb8:	90 e0       	ldi	r25, 0x00	; 0
+								//return;
+							//}
+							
+							// Wyszukanie komendy pilota, której odpowiada odebrany bajt komendy i przypisanie jej do zmiennej
+							
+							for (uint8_t i=0; i<commandsTableSize;i++)
+     cba:	86 17       	cp	r24, r22
+     cbc:	28 f3       	brcs	.-54     	; 0xc88 <decodeNECframe+0x136>
+								}
+							}
+							
+						}
+												
+						bitIndex = 7;
+     cbe:	87 e0       	ldi	r24, 0x07	; 7
+     cc0:	80 93 4a 01 	sts	0x014A, r24
+						byteIndex++;
+     cc4:	5f 5f       	subi	r21, 0xFF	; 255
+     cc6:	50 93 37 01 	sts	0x0137, r21
+     cca:	08 95       	ret
+					}
+					else
+					{
+						bitIndex--;
+     ccc:	81 50       	subi	r24, 0x01	; 1
+     cce:	80 93 4a 01 	sts	0x014A, r24
+     cd2:	08 95       	ret
+//----------------	
+
+
+		case WAIT_500ms:
+	
+			switch(edgeDirection)
+     cd4:	80 91 49 01 	lds	r24, 0x0149
+     cd8:	81 11       	cpse	r24, r1
+     cda:	30 c0       	rjmp	.+96     	; 0xd3c <decodeNECframe+0x1ea>
+			{
+				case RISING:
+				break;
+				
+				case FALLING:
+				runningTime = 0;
+     cdc:	10 92 35 01 	sts	0x0135, r1
+     ce0:	10 92 34 01 	sts	0x0134, r1
+				transmissionTime = 0;
+     ce4:	10 92 50 01 	sts	0x0150, r1
+     ce8:	10 92 4f 01 	sts	0x014F, r1
+				IrState = REPEAT_CHECKING;
+     cec:	85 e0       	ldi	r24, 0x05	; 5
+     cee:	80 93 2c 01 	sts	0x012C, r24
+				break;
+     cf2:	08 95       	ret
+		
+		break;	
+		
+		
+		case WAIT:
+				runningTime = 0;
+     cf4:	10 92 35 01 	sts	0x0135, r1
+     cf8:	10 92 34 01 	sts	0x0134, r1
+				transmissionTime = 0;
+     cfc:	10 92 50 01 	sts	0x0150, r1
+     d00:	10 92 4f 01 	sts	0x014F, r1
+				IrState = REPEAT_CHECKING;
+     d04:	85 e0       	ldi	r24, 0x05	; 5
+     d06:	80 93 2c 01 	sts	0x012C, r24
+		break;
+     d0a:	08 95       	ret
+		
+		case REPEAT_CHECKING:
+				measuredTime = runningTime;
+     d0c:	80 91 34 01 	lds	r24, 0x0134
+     d10:	90 91 35 01 	lds	r25, 0x0135
+     d14:	90 93 39 01 	sts	0x0139, r25
+     d18:	80 93 38 01 	sts	0x0138, r24
+				runningTime = 0;
+     d1c:	10 92 35 01 	sts	0x0135, r1
+     d20:	10 92 34 01 	sts	0x0134, r1
+				if (measuredTime<(TIME_LEAD_1-TIME_TOLERANCE_LEAD) || measuredTime>(TIME_LEAD_1+TIME_TOLERANCE_LEAD)) // poza 8,5-9,5 ms.
+     d24:	8a 5a       	subi	r24, 0xAA	; 170
+     d26:	91 09       	sbc	r25, r1
+     d28:	45 97       	sbiw	r24, 0x15	; 21
+     d2a:	18 f0       	brcs	.+6      	; 0xd32 <decodeNECframe+0x1e0>
+				{
+					resetFrameReading();
+     d2c:	0e 94 b3 04 	call	0x966	; 0x966 <resetFrameReading>
+					return;
+     d30:	08 95       	ret
+				}
+				else
+				{
+					allowEdgeFlag = 0;
+     d32:	10 92 48 01 	sts	0x0148, r1
+					IrState = WAIT;
+     d36:	84 e0       	ldi	r24, 0x04	; 4
+     d38:	80 93 2c 01 	sts	0x012C, r24
+     d3c:	08 95       	ret
+
+00000d3e <initPWM>:
+
+
+
+void initPWM()
+{
+	CH_DDR |= (1<<OUTPUT_CH_1)|(1<<OUTPUT_CH_2); // piny steruj¹ce (PB1 PB2) jako wyjœcia
+     d3e:	84 b1       	in	r24, 0x04	; 4
+     d40:	86 60       	ori	r24, 0x06	; 6
+     d42:	84 b9       	out	0x04, r24	; 4
+	TCCR1A |= (1 << COM1A1)|(1 << COM1B1)|(1 << COM1A0)|(1 << COM1B0); //inverting mode
+     d44:	e0 e8       	ldi	r30, 0x80	; 128
+     d46:	f0 e0       	ldi	r31, 0x00	; 0
+     d48:	80 81       	ld	r24, Z
+     d4a:	80 6f       	ori	r24, 0xF0	; 240
+     d4c:	80 83       	st	Z, r24
+	
+	// FastPWM 10 bit
+	TCCR1A |= (1 << WGM10)|(1<<WGM11);
+     d4e:	80 81       	ld	r24, Z
+     d50:	83 60       	ori	r24, 0x03	; 3
+     d52:	80 83       	st	Z, r24
+	TCCR1B |= (1 << WGM12);
+     d54:	e1 e8       	ldi	r30, 0x81	; 129
+     d56:	f0 e0       	ldi	r31, 0x00	; 0
+     d58:	80 81       	ld	r24, Z
+     d5a:	88 60       	ori	r24, 0x08	; 8
+     d5c:	80 83       	st	Z, r24
+	
+	// prescaler 1
+	TCCR1B |= (1 << CS10); 
+     d5e:	80 81       	ld	r24, Z
+     d60:	81 60       	ori	r24, 0x01	; 1
+     d62:	80 83       	st	Z, r24
+     d64:	08 95       	ret
+
+00000d66 <checkCommand>:
+}
+
+void checkCommand()
+{
+	switch (confirmedCommand)
+     d66:	80 91 47 01 	lds	r24, 0x0147
+     d6a:	90 e0       	ldi	r25, 0x00	; 0
+     d6c:	85 31       	cpi	r24, 0x15	; 21
+     d6e:	91 05       	cpc	r25, r1
+     d70:	08 f0       	brcs	.+2      	; 0xd74 <checkCommand+0xe>
+     d72:	b0 c0       	rjmp	.+352    	; 0xed4 <checkCommand+0x16e>
+     d74:	fc 01       	movw	r30, r24
+     d76:	ec 5c       	subi	r30, 0xCC	; 204
+     d78:	ff 4f       	sbci	r31, 0xFF	; 255
+     d7a:	0c 94 d0 09 	jmp	0x13a0	; 0x13a0 <__tablejump2__>
+	{
+		case POWER:
+					finalLevel_CH1 = LEV_100;
+     d7e:	8f ef       	ldi	r24, 0xFF	; 255
+     d80:	93 e0       	ldi	r25, 0x03	; 3
+     d82:	90 93 5e 01 	sts	0x015E, r25
+     d86:	80 93 5d 01 	sts	0x015D, r24
+					dimStatus = PRESET_DIMM;
+     d8a:	82 e0       	ldi	r24, 0x02	; 2
+     d8c:	80 93 5a 01 	sts	0x015A, r24
+					selectedChannel = CH_1;
+     d90:	81 e0       	ldi	r24, 0x01	; 1
+     d92:	80 93 5f 01 	sts	0x015F, r24
+					break;
+     d96:	08 95       	ret
+		case HIDE:
+					finalLevel_CH2 = LEV_100;
+     d98:	8f ef       	ldi	r24, 0xFF	; 255
+     d9a:	93 e0       	ldi	r25, 0x03	; 3
+     d9c:	90 93 57 01 	sts	0x0157, r25
+     da0:	80 93 56 01 	sts	0x0156, r24
+					dimStatus = PRESET_DIMM;
+     da4:	82 e0       	ldi	r24, 0x02	; 2
+     da6:	80 93 5a 01 	sts	0x015A, r24
+					selectedChannel = CH_2;
+     daa:	80 93 5f 01 	sts	0x015F, r24
+					break;
+     dae:	08 95       	ret
+		case RESYNC:
+					finalLevel_CH1 = LEV_75;
+     db0:	88 e0       	ldi	r24, 0x08	; 8
+     db2:	92 e0       	ldi	r25, 0x02	; 2
+     db4:	90 93 5e 01 	sts	0x015E, r25
+     db8:	80 93 5d 01 	sts	0x015D, r24
+					dimStatus = PRESET_DIMM;
+     dbc:	82 e0       	ldi	r24, 0x02	; 2
+     dbe:	80 93 5a 01 	sts	0x015A, r24
+					selectedChannel = CH_1;
+     dc2:	81 e0       	ldi	r24, 0x01	; 1
+     dc4:	80 93 5f 01 	sts	0x015F, r24
+					break;
+     dc8:	08 95       	ret
+		case FREEZE:
+					finalLevel_CH2 = LEV_75;
+     dca:	88 e0       	ldi	r24, 0x08	; 8
+     dcc:	92 e0       	ldi	r25, 0x02	; 2
+     dce:	90 93 57 01 	sts	0x0157, r25
+     dd2:	80 93 56 01 	sts	0x0156, r24
+					dimStatus = PRESET_DIMM;
+     dd6:	82 e0       	ldi	r24, 0x02	; 2
+     dd8:	80 93 5a 01 	sts	0x015A, r24
+					selectedChannel = CH_2;
+     ddc:	80 93 5f 01 	sts	0x015F, r24
+					break;
+     de0:	08 95       	ret
+		case VOL_PLUS:
+					finalLevel_CH1 = LEV_50;
+     de2:	8a ef       	ldi	r24, 0xFA	; 250
+     de4:	90 e0       	ldi	r25, 0x00	; 0
+     de6:	90 93 5e 01 	sts	0x015E, r25
+     dea:	80 93 5d 01 	sts	0x015D, r24
+					dimStatus = PRESET_DIMM;
+     dee:	82 e0       	ldi	r24, 0x02	; 2
+     df0:	80 93 5a 01 	sts	0x015A, r24
+					selectedChannel = CH_1;
+     df4:	81 e0       	ldi	r24, 0x01	; 1
+     df6:	80 93 5f 01 	sts	0x015F, r24
+					break;
+     dfa:	08 95       	ret
+		case KEYSTONE_1:
+					break;
+		case D_ZOOM:
+					finalLevel_CH2 = LEV_50;
+     dfc:	8a ef       	ldi	r24, 0xFA	; 250
+     dfe:	90 e0       	ldi	r25, 0x00	; 0
+     e00:	90 93 57 01 	sts	0x0157, r25
+     e04:	80 93 56 01 	sts	0x0156, r24
+					dimStatus = PRESET_DIMM;
+     e08:	82 e0       	ldi	r24, 0x02	; 2
+     e0a:	80 93 5a 01 	sts	0x015A, r24
+					selectedChannel = CH_2;
+     e0e:	80 93 5f 01 	sts	0x015F, r24
+					break;
+     e12:	08 95       	ret
+		case VOL_MINUS:
+					finalLevel_CH1 = LEV_25;
+     e14:	84 e1       	ldi	r24, 0x14	; 20
+     e16:	90 e0       	ldi	r25, 0x00	; 0
+     e18:	90 93 5e 01 	sts	0x015E, r25
+     e1c:	80 93 5d 01 	sts	0x015D, r24
+					dimStatus = PRESET_DIMM;
+     e20:	82 e0       	ldi	r24, 0x02	; 2
+     e22:	80 93 5a 01 	sts	0x015A, r24
+					selectedChannel = CH_1;
+     e26:	81 e0       	ldi	r24, 0x01	; 1
+     e28:	80 93 5f 01 	sts	0x015F, r24
+					break;
+     e2c:	08 95       	ret
+		case KEYSTONE_2:
+					break;
+		case DISPL_MODE:
+					finalLevel_CH2 = LEV_25;
+     e2e:	84 e1       	ldi	r24, 0x14	; 20
+     e30:	90 e0       	ldi	r25, 0x00	; 0
+     e32:	90 93 57 01 	sts	0x0157, r25
+     e36:	80 93 56 01 	sts	0x0156, r24
+					dimStatus = PRESET_DIMM;
+     e3a:	82 e0       	ldi	r24, 0x02	; 2
+     e3c:	80 93 5a 01 	sts	0x015A, r24
+					selectedChannel = CH_2;
+     e40:	80 93 5f 01 	sts	0x015F, r24
+					break;
+     e44:	08 95       	ret
+		case RESET:
+					finalLevel_CH1 = LEV_0;
+     e46:	10 92 5e 01 	sts	0x015E, r1
+     e4a:	10 92 5d 01 	sts	0x015D, r1
+					dimStatus = PRESET_DIMM;
+     e4e:	82 e0       	ldi	r24, 0x02	; 2
+     e50:	80 93 5a 01 	sts	0x015A, r24
+					selectedChannel = CH_1;
+     e54:	81 e0       	ldi	r24, 0x01	; 1
+     e56:	80 93 5f 01 	sts	0x015F, r24
+					break;
+     e5a:	08 95       	ret
+		case MENU:
+					finalLevel_CH2 = LEV_0;
+     e5c:	10 92 57 01 	sts	0x0157, r1
+     e60:	10 92 56 01 	sts	0x0156, r1
+					dimStatus = PRESET_DIMM;
+     e64:	82 e0       	ldi	r24, 0x02	; 2
+     e66:	80 93 5a 01 	sts	0x015A, r24
+					selectedChannel = CH_2;
+     e6a:	80 93 5f 01 	sts	0x015F, r24
+					break;
+     e6e:	08 95       	ret
+		case UP:
+					dimStatus = MANUAL_DIMM;
+     e70:	81 e0       	ldi	r24, 0x01	; 1
+     e72:	80 93 5a 01 	sts	0x015A, r24
+					break;
+     e76:	08 95       	ret
+		case DOWN:
+					dimStatus = MANUAL_DIMM;
+     e78:	81 e0       	ldi	r24, 0x01	; 1
+     e7a:	80 93 5a 01 	sts	0x015A, r24
+					break;
+     e7e:	08 95       	ret
+		case LEFT:
+					selectedChannel = CH_1;
+     e80:	81 e0       	ldi	r24, 0x01	; 1
+     e82:	80 93 5f 01 	sts	0x015F, r24
+					break;
+     e86:	08 95       	ret
+		case ENTER:
+					selectedChannel = CH_1_AND_CH_2;
+     e88:	83 e0       	ldi	r24, 0x03	; 3
+     e8a:	80 93 5f 01 	sts	0x015F, r24
+					break;
+     e8e:	08 95       	ret
+		case RIGHT:
+					selectedChannel = CH_2;
+     e90:	82 e0       	ldi	r24, 0x02	; 2
+     e92:	80 93 5f 01 	sts	0x015F, r24
+					break;
+     e96:	08 95       	ret
+		case COMPOSITE:
+					finalLevel_CH1 = 0;
+     e98:	10 92 5e 01 	sts	0x015E, r1
+     e9c:	10 92 5d 01 	sts	0x015D, r1
+					finalLevel_CH2 = 0;
+     ea0:	10 92 57 01 	sts	0x0157, r1
+     ea4:	10 92 56 01 	sts	0x0156, r1
+					dimStatus = ONOFF_DIMM;
+     ea8:	83 e0       	ldi	r24, 0x03	; 3
+     eaa:	80 93 5a 01 	sts	0x015A, r24
+					break;
+     eae:	08 95       	ret
+		case S_VIDEO:
+					finalLevel_CH1 = 0;
+     eb0:	10 92 5e 01 	sts	0x015E, r1
+     eb4:	10 92 5d 01 	sts	0x015D, r1
+					finalLevel_CH2 = 0;
+     eb8:	10 92 57 01 	sts	0x0157, r1
+     ebc:	10 92 56 01 	sts	0x0156, r1
+					dimStatus = ONOFF_DIMM;
+     ec0:	83 e0       	ldi	r24, 0x03	; 3
+     ec2:	80 93 5a 01 	sts	0x015A, r24
+					break;
+     ec6:	08 95       	ret
+		case NO_COMMAND:
+					if(dimStatus==MANUAL_DIMM) dimStatus = NO_DIMM;
+     ec8:	80 91 5a 01 	lds	r24, 0x015A
+     ecc:	81 30       	cpi	r24, 0x01	; 1
+     ece:	11 f4       	brne	.+4      	; 0xed4 <checkCommand+0x16e>
+     ed0:	10 92 5a 01 	sts	0x015A, r1
+     ed4:	08 95       	ret
+
+00000ed6 <dimm>:
+	}
+}
+
+void dimm()
+{
+	if (doDimmStepFlag_CH1)
+     ed6:	80 91 31 01 	lds	r24, 0x0131
+     eda:	88 23       	and	r24, r24
+     edc:	09 f4       	brne	.+2      	; 0xee0 <dimm+0xa>
+     ede:	6e c0       	rjmp	.+220    	; 0xfbc <dimm+0xe6>
+	{
+		doDimmStepFlag_CH1 = 0;
+     ee0:	10 92 31 01 	sts	0x0131, r1
+		if (dimStatus==MANUAL_DIMM && (selectedChannel == CH_1 || selectedChannel == CH_1_AND_CH_2))
+     ee4:	40 91 5a 01 	lds	r20, 0x015A
+     ee8:	41 30       	cpi	r20, 0x01	; 1
+     eea:	41 f5       	brne	.+80     	; 0xf3c <dimm+0x66>
+     eec:	80 91 5f 01 	lds	r24, 0x015F
+     ef0:	8d 7f       	andi	r24, 0xFD	; 253
+     ef2:	81 30       	cpi	r24, 0x01	; 1
+     ef4:	09 f0       	breq	.+2      	; 0xef8 <dimm+0x22>
+     ef6:	54 c0       	rjmp	.+168    	; 0xfa0 <dimm+0xca>
+		{
+			if (actualCommand == DOWN && actualLevel_CH1>0) actualLevel_CH1--;
+     ef8:	80 91 58 01 	lds	r24, 0x0158
+     efc:	82 30       	cpi	r24, 0x02	; 2
+     efe:	69 f4       	brne	.+26     	; 0xf1a <dimm+0x44>
+     f00:	80 91 54 01 	lds	r24, 0x0154
+     f04:	90 91 55 01 	lds	r25, 0x0155
+     f08:	00 97       	sbiw	r24, 0x00	; 0
+     f0a:	09 f4       	brne	.+2      	; 0xf0e <dimm+0x38>
+     f0c:	49 c0       	rjmp	.+146    	; 0xfa0 <dimm+0xca>
+     f0e:	01 97       	sbiw	r24, 0x01	; 1
+     f10:	90 93 55 01 	sts	0x0155, r25
+     f14:	80 93 54 01 	sts	0x0154, r24
+     f18:	43 c0       	rjmp	.+134    	; 0xfa0 <dimm+0xca>
+			if (actualCommand == UP && actualLevel_CH1<1023) actualLevel_CH1++;
+     f1a:	81 30       	cpi	r24, 0x01	; 1
+     f1c:	09 f0       	breq	.+2      	; 0xf20 <dimm+0x4a>
+     f1e:	40 c0       	rjmp	.+128    	; 0xfa0 <dimm+0xca>
+     f20:	80 91 54 01 	lds	r24, 0x0154
+     f24:	90 91 55 01 	lds	r25, 0x0155
+     f28:	8f 3f       	cpi	r24, 0xFF	; 255
+     f2a:	23 e0       	ldi	r18, 0x03	; 3
+     f2c:	92 07       	cpc	r25, r18
+     f2e:	c0 f5       	brcc	.+112    	; 0xfa0 <dimm+0xca>
+     f30:	01 96       	adiw	r24, 0x01	; 1
+     f32:	90 93 55 01 	sts	0x0155, r25
+     f36:	80 93 54 01 	sts	0x0154, r24
+     f3a:	32 c0       	rjmp	.+100    	; 0xfa0 <dimm+0xca>
+		}
+		if ((dimStatus==PRESET_DIMM && selectedChannel == CH_1) || dimStatus==ONOFF_DIMM)
+     f3c:	42 30       	cpi	r20, 0x02	; 2
+     f3e:	29 f4       	brne	.+10     	; 0xf4a <dimm+0x74>
+     f40:	80 91 5f 01 	lds	r24, 0x015F
+     f44:	81 30       	cpi	r24, 0x01	; 1
+     f46:	61 f5       	brne	.+88     	; 0xfa0 <dimm+0xca>
+     f48:	02 c0       	rjmp	.+4      	; 0xf4e <dimm+0x78>
+     f4a:	43 30       	cpi	r20, 0x03	; 3
+     f4c:	49 f5       	brne	.+82     	; 0xfa0 <dimm+0xca>
+		{
+			if (actualLevel_CH1>finalLevel_CH1) actualLevel_CH1--;
+     f4e:	20 91 54 01 	lds	r18, 0x0154
+     f52:	30 91 55 01 	lds	r19, 0x0155
+     f56:	80 91 5d 01 	lds	r24, 0x015D
+     f5a:	90 91 5e 01 	lds	r25, 0x015E
+     f5e:	82 17       	cp	r24, r18
+     f60:	93 07       	cpc	r25, r19
+     f62:	30 f4       	brcc	.+12     	; 0xf70 <dimm+0x9a>
+     f64:	21 50       	subi	r18, 0x01	; 1
+     f66:	31 09       	sbc	r19, r1
+     f68:	30 93 55 01 	sts	0x0155, r19
+     f6c:	20 93 54 01 	sts	0x0154, r18
+			if (actualLevel_CH1<finalLevel_CH1) actualLevel_CH1++;
+     f70:	20 91 54 01 	lds	r18, 0x0154
+     f74:	30 91 55 01 	lds	r19, 0x0155
+     f78:	28 17       	cp	r18, r24
+     f7a:	39 07       	cpc	r19, r25
+     f7c:	30 f4       	brcc	.+12     	; 0xf8a <dimm+0xb4>
+     f7e:	2f 5f       	subi	r18, 0xFF	; 255
+     f80:	3f 4f       	sbci	r19, 0xFF	; 255
+     f82:	30 93 55 01 	sts	0x0155, r19
+     f86:	20 93 54 01 	sts	0x0154, r18
+			if (dimStatus==PRESET_DIMM && actualLevel_CH1 == finalLevel_CH1) dimStatus = NO_DIMM;
+     f8a:	42 30       	cpi	r20, 0x02	; 2
+     f8c:	49 f4       	brne	.+18     	; 0xfa0 <dimm+0xca>
+     f8e:	20 91 54 01 	lds	r18, 0x0154
+     f92:	30 91 55 01 	lds	r19, 0x0155
+     f96:	82 17       	cp	r24, r18
+     f98:	93 07       	cpc	r25, r19
+     f9a:	11 f4       	brne	.+4      	; 0xfa0 <dimm+0xca>
+     f9c:	10 92 5a 01 	sts	0x015A, r1
+		}
+		
+		// pobranie z tablicy OCR1_. Tablica zapisana w pamiêci programu (PROGMEM, pgm_read_word)
+		OCR1A = pgm_read_word(&OCR_Array[actualLevel_CH1]);
+     fa0:	e0 91 54 01 	lds	r30, 0x0154
+     fa4:	f0 91 55 01 	lds	r31, 0x0155
+     fa8:	ee 0f       	add	r30, r30
+     faa:	ff 1f       	adc	r31, r31
+     fac:	ee 56       	subi	r30, 0x6E	; 110
+     fae:	ff 4f       	sbci	r31, 0xFF	; 255
+     fb0:	85 91       	lpm	r24, Z+
+     fb2:	94 91       	lpm	r25, Z
+     fb4:	90 93 89 00 	sts	0x0089, r25
+     fb8:	80 93 88 00 	sts	0x0088, r24
+	}
+	
+	if (doDimmStepFlag_CH2)
+     fbc:	80 91 51 01 	lds	r24, 0x0151
+     fc0:	88 23       	and	r24, r24
+     fc2:	09 f4       	brne	.+2      	; 0xfc6 <dimm+0xf0>
+     fc4:	6e c0       	rjmp	.+220    	; 0x10a2 <dimm+0x1cc>
+	{
+		doDimmStepFlag_CH2 = 0;
+     fc6:	10 92 51 01 	sts	0x0151, r1
+		if (dimStatus==MANUAL_DIMM && (selectedChannel == CH_2 || selectedChannel == CH_1_AND_CH_2))
+     fca:	40 91 5a 01 	lds	r20, 0x015A
+     fce:	41 30       	cpi	r20, 0x01	; 1
+     fd0:	41 f5       	brne	.+80     	; 0x1022 <dimm+0x14c>
+     fd2:	80 91 5f 01 	lds	r24, 0x015F
+     fd6:	82 50       	subi	r24, 0x02	; 2
+     fd8:	82 30       	cpi	r24, 0x02	; 2
+     fda:	08 f0       	brcs	.+2      	; 0xfde <dimm+0x108>
+     fdc:	54 c0       	rjmp	.+168    	; 0x1086 <dimm+0x1b0>
+		{
+			if (actualCommand == DOWN && actualLevel_CH2>0) actualLevel_CH2--;
+     fde:	80 91 58 01 	lds	r24, 0x0158
+     fe2:	82 30       	cpi	r24, 0x02	; 2
+     fe4:	69 f4       	brne	.+26     	; 0x1000 <dimm+0x12a>
+     fe6:	80 91 5b 01 	lds	r24, 0x015B
+     fea:	90 91 5c 01 	lds	r25, 0x015C
+     fee:	00 97       	sbiw	r24, 0x00	; 0
+     ff0:	09 f4       	brne	.+2      	; 0xff4 <dimm+0x11e>
+     ff2:	49 c0       	rjmp	.+146    	; 0x1086 <dimm+0x1b0>
+     ff4:	01 97       	sbiw	r24, 0x01	; 1
+     ff6:	90 93 5c 01 	sts	0x015C, r25
+     ffa:	80 93 5b 01 	sts	0x015B, r24
+     ffe:	43 c0       	rjmp	.+134    	; 0x1086 <dimm+0x1b0>
+			if (actualCommand == UP && actualLevel_CH2<1023) actualLevel_CH2++;
+    1000:	81 30       	cpi	r24, 0x01	; 1
+    1002:	09 f0       	breq	.+2      	; 0x1006 <dimm+0x130>
+    1004:	40 c0       	rjmp	.+128    	; 0x1086 <dimm+0x1b0>
+    1006:	80 91 5b 01 	lds	r24, 0x015B
+    100a:	90 91 5c 01 	lds	r25, 0x015C
+    100e:	8f 3f       	cpi	r24, 0xFF	; 255
+    1010:	23 e0       	ldi	r18, 0x03	; 3
+    1012:	92 07       	cpc	r25, r18
+    1014:	c0 f5       	brcc	.+112    	; 0x1086 <dimm+0x1b0>
+    1016:	01 96       	adiw	r24, 0x01	; 1
+    1018:	90 93 5c 01 	sts	0x015C, r25
+    101c:	80 93 5b 01 	sts	0x015B, r24
+    1020:	32 c0       	rjmp	.+100    	; 0x1086 <dimm+0x1b0>
+		}
+		if ((dimStatus==PRESET_DIMM && selectedChannel == CH_2) || dimStatus==ONOFF_DIMM)
+    1022:	42 30       	cpi	r20, 0x02	; 2
+    1024:	29 f4       	brne	.+10     	; 0x1030 <dimm+0x15a>
+    1026:	80 91 5f 01 	lds	r24, 0x015F
+    102a:	82 30       	cpi	r24, 0x02	; 2
+    102c:	61 f5       	brne	.+88     	; 0x1086 <dimm+0x1b0>
+    102e:	02 c0       	rjmp	.+4      	; 0x1034 <dimm+0x15e>
+    1030:	43 30       	cpi	r20, 0x03	; 3
+    1032:	49 f5       	brne	.+82     	; 0x1086 <dimm+0x1b0>
+		{
+			if (actualLevel_CH2>finalLevel_CH2) actualLevel_CH2--;
+    1034:	20 91 5b 01 	lds	r18, 0x015B
+    1038:	30 91 5c 01 	lds	r19, 0x015C
+    103c:	80 91 56 01 	lds	r24, 0x0156
+    1040:	90 91 57 01 	lds	r25, 0x0157
+    1044:	82 17       	cp	r24, r18
+    1046:	93 07       	cpc	r25, r19
+    1048:	30 f4       	brcc	.+12     	; 0x1056 <dimm+0x180>
+    104a:	21 50       	subi	r18, 0x01	; 1
+    104c:	31 09       	sbc	r19, r1
+    104e:	30 93 5c 01 	sts	0x015C, r19
+    1052:	20 93 5b 01 	sts	0x015B, r18
+			if (actualLevel_CH2<finalLevel_CH2) actualLevel_CH2++;
+    1056:	20 91 5b 01 	lds	r18, 0x015B
+    105a:	30 91 5c 01 	lds	r19, 0x015C
+    105e:	28 17       	cp	r18, r24
+    1060:	39 07       	cpc	r19, r25
+    1062:	30 f4       	brcc	.+12     	; 0x1070 <dimm+0x19a>
+    1064:	2f 5f       	subi	r18, 0xFF	; 255
+    1066:	3f 4f       	sbci	r19, 0xFF	; 255
+    1068:	30 93 5c 01 	sts	0x015C, r19
+    106c:	20 93 5b 01 	sts	0x015B, r18
+			if (dimStatus==PRESET_DIMM && actualLevel_CH2 == finalLevel_CH2) dimStatus = NO_DIMM;
+    1070:	42 30       	cpi	r20, 0x02	; 2
+    1072:	49 f4       	brne	.+18     	; 0x1086 <dimm+0x1b0>
+    1074:	20 91 5b 01 	lds	r18, 0x015B
+    1078:	30 91 5c 01 	lds	r19, 0x015C
+    107c:	82 17       	cp	r24, r18
+    107e:	93 07       	cpc	r25, r19
+    1080:	11 f4       	brne	.+4      	; 0x1086 <dimm+0x1b0>
+    1082:	10 92 5a 01 	sts	0x015A, r1
+		}
+		// pobranie z tablicy OCR1_
+		OCR1B = pgm_read_word(&OCR_Array[actualLevel_CH2]);
+    1086:	e0 91 5b 01 	lds	r30, 0x015B
+    108a:	f0 91 5c 01 	lds	r31, 0x015C
+    108e:	ee 0f       	add	r30, r30
+    1090:	ff 1f       	adc	r31, r31
+    1092:	ee 56       	subi	r30, 0x6E	; 110
+    1094:	ff 4f       	sbci	r31, 0xFF	; 255
+    1096:	85 91       	lpm	r24, Z+
+    1098:	94 91       	lpm	r25, Z
+    109a:	90 93 8b 00 	sts	0x008B, r25
+    109e:	80 93 8a 00 	sts	0x008A, r24
+	}
+	
+	if(dimStatus==ONOFF_DIMM && actualLevel_CH1==0 && actualLevel_CH2==0) dimStatus = NO_DIMM;
+    10a2:	80 91 5a 01 	lds	r24, 0x015A
+    10a6:	83 30       	cpi	r24, 0x03	; 3
+    10a8:	71 f4       	brne	.+28     	; 0x10c6 <dimm+0x1f0>
+    10aa:	80 91 54 01 	lds	r24, 0x0154
+    10ae:	90 91 55 01 	lds	r25, 0x0155
+    10b2:	89 2b       	or	r24, r25
+    10b4:	41 f4       	brne	.+16     	; 0x10c6 <dimm+0x1f0>
+    10b6:	80 91 5b 01 	lds	r24, 0x015B
+    10ba:	90 91 5c 01 	lds	r25, 0x015C
+    10be:	89 2b       	or	r24, r25
+    10c0:	11 f4       	brne	.+4      	; 0x10c6 <dimm+0x1f0>
+    10c2:	10 92 5a 01 	sts	0x015A, r1
+    10c6:	08 95       	ret
+
+000010c8 <calculateStep>:
+}
+
+void calculateStep()
+{
+	if(dimStatus==MANUAL_DIMM)
+    10c8:	80 91 5a 01 	lds	r24, 0x015A
+    10cc:	81 30       	cpi	r24, 0x01	; 1
+    10ce:	a9 f4       	brne	.+42     	; 0x10fa <calculateStep+0x32>
+	{
+		dimmStepWidth_CH1 = 130;
+    10d0:	82 e8       	ldi	r24, 0x82	; 130
+    10d2:	90 e0       	ldi	r25, 0x00	; 0
+    10d4:	a0 e0       	ldi	r26, 0x00	; 0
+    10d6:	b0 e0       	ldi	r27, 0x00	; 0
+    10d8:	80 93 43 01 	sts	0x0143, r24
+    10dc:	90 93 44 01 	sts	0x0144, r25
+    10e0:	a0 93 45 01 	sts	0x0145, r26
+    10e4:	b0 93 46 01 	sts	0x0146, r27
+		dimmStepWidth_CH2 = 130;
+    10e8:	80 93 4b 01 	sts	0x014B, r24
+    10ec:	90 93 4c 01 	sts	0x014C, r25
+    10f0:	a0 93 4d 01 	sts	0x014D, r26
+    10f4:	b0 93 4e 01 	sts	0x014E, r27
+    10f8:	b9 c0       	rjmp	.+370    	; 0x126c <calculateStep+0x1a4>
+	}
+	if (dimStatus==PRESET_DIMM)
+    10fa:	82 30       	cpi	r24, 0x02	; 2
+    10fc:	09 f0       	breq	.+2      	; 0x1100 <calculateStep+0x38>
+    10fe:	4e c0       	rjmp	.+156    	; 0x119c <calculateStep+0xd4>
+	{
+		if(finalLevel_CH1!=actualLevel_CH1) dimmStepWidth_CH1 = (uint32_t) FADE_TIME*2000/abs(finalLevel_CH1-actualLevel_CH1); // dla okresu Timera = 50us
+    1100:	20 91 5d 01 	lds	r18, 0x015D
+    1104:	30 91 5e 01 	lds	r19, 0x015E
+    1108:	80 91 54 01 	lds	r24, 0x0154
+    110c:	90 91 55 01 	lds	r25, 0x0155
+    1110:	28 17       	cp	r18, r24
+    1112:	39 07       	cpc	r19, r25
+    1114:	d9 f0       	breq	.+54     	; 0x114c <calculateStep+0x84>
+    1116:	a9 01       	movw	r20, r18
+    1118:	48 1b       	sub	r20, r24
+    111a:	59 0b       	sbc	r21, r25
+    111c:	9a 01       	movw	r18, r20
+    111e:	22 f4       	brpl	.+8      	; 0x1128 <calculateStep+0x60>
+    1120:	22 27       	eor	r18, r18
+    1122:	33 27       	eor	r19, r19
+    1124:	24 1b       	sub	r18, r20
+    1126:	35 0b       	sbc	r19, r21
+    1128:	44 27       	eor	r20, r20
+    112a:	37 fd       	sbrc	r19, 7
+    112c:	40 95       	com	r20
+    112e:	54 2f       	mov	r21, r20
+    1130:	60 ee       	ldi	r22, 0xE0	; 224
+    1132:	7e e2       	ldi	r23, 0x2E	; 46
+    1134:	80 e0       	ldi	r24, 0x00	; 0
+    1136:	90 e0       	ldi	r25, 0x00	; 0
+    1138:	0e 94 ae 09 	call	0x135c	; 0x135c <__udivmodsi4>
+    113c:	20 93 43 01 	sts	0x0143, r18
+    1140:	30 93 44 01 	sts	0x0144, r19
+    1144:	40 93 45 01 	sts	0x0145, r20
+    1148:	50 93 46 01 	sts	0x0146, r21
+		if(finalLevel_CH2!=actualLevel_CH2) dimmStepWidth_CH2 = (uint32_t) FADE_TIME*2000/abs(finalLevel_CH2-actualLevel_CH2);
+    114c:	20 91 56 01 	lds	r18, 0x0156
+    1150:	30 91 57 01 	lds	r19, 0x0157
+    1154:	80 91 5b 01 	lds	r24, 0x015B
+    1158:	90 91 5c 01 	lds	r25, 0x015C
+    115c:	28 17       	cp	r18, r24
+    115e:	39 07       	cpc	r19, r25
+    1160:	09 f4       	brne	.+2      	; 0x1164 <calculateStep+0x9c>
+    1162:	84 c0       	rjmp	.+264    	; 0x126c <calculateStep+0x1a4>
+    1164:	a9 01       	movw	r20, r18
+    1166:	48 1b       	sub	r20, r24
+    1168:	59 0b       	sbc	r21, r25
+    116a:	9a 01       	movw	r18, r20
+    116c:	22 f4       	brpl	.+8      	; 0x1176 <calculateStep+0xae>
+    116e:	22 27       	eor	r18, r18
+    1170:	33 27       	eor	r19, r19
+    1172:	24 1b       	sub	r18, r20
+    1174:	35 0b       	sbc	r19, r21
+    1176:	44 27       	eor	r20, r20
+    1178:	37 fd       	sbrc	r19, 7
+    117a:	40 95       	com	r20
+    117c:	54 2f       	mov	r21, r20
+    117e:	60 ee       	ldi	r22, 0xE0	; 224
+    1180:	7e e2       	ldi	r23, 0x2E	; 46
+    1182:	80 e0       	ldi	r24, 0x00	; 0
+    1184:	90 e0       	ldi	r25, 0x00	; 0
+    1186:	0e 94 ae 09 	call	0x135c	; 0x135c <__udivmodsi4>
+    118a:	20 93 4b 01 	sts	0x014B, r18
+    118e:	30 93 4c 01 	sts	0x014C, r19
+    1192:	40 93 4d 01 	sts	0x014D, r20
+    1196:	50 93 4e 01 	sts	0x014E, r21
+    119a:	68 c0       	rjmp	.+208    	; 0x126c <calculateStep+0x1a4>
+	}	
+	if (dimStatus==ONOFF_DIMM)
+    119c:	83 30       	cpi	r24, 0x03	; 3
+    119e:	09 f0       	breq	.+2      	; 0x11a2 <calculateStep+0xda>
+    11a0:	65 c0       	rjmp	.+202    	; 0x126c <calculateStep+0x1a4>
+	{
+		switch (actualCommand)
+    11a2:	80 91 58 01 	lds	r24, 0x0158
+    11a6:	83 31       	cpi	r24, 0x13	; 19
+    11a8:	19 f0       	breq	.+6      	; 0x11b0 <calculateStep+0xe8>
+    11aa:	84 31       	cpi	r24, 0x14	; 20
+    11ac:	89 f1       	breq	.+98     	; 0x1210 <calculateStep+0x148>
+    11ae:	5e c0       	rjmp	.+188    	; 0x126c <calculateStep+0x1a4>
+		{
+			case COMPOSITE:
+						if(actualLevel_CH1!=0) dimmStepWidth_CH1 = (uint32_t) ASLEEP_TIME_1*2000/actualLevel_CH1;
+    11b0:	20 91 54 01 	lds	r18, 0x0154
+    11b4:	30 91 55 01 	lds	r19, 0x0155
+    11b8:	21 15       	cp	r18, r1
+    11ba:	31 05       	cpc	r19, r1
+    11bc:	81 f0       	breq	.+32     	; 0x11de <calculateStep+0x116>
+    11be:	40 e0       	ldi	r20, 0x00	; 0
+    11c0:	50 e0       	ldi	r21, 0x00	; 0
+    11c2:	60 e8       	ldi	r22, 0x80	; 128
+    11c4:	7f e4       	ldi	r23, 0x4F	; 79
+    11c6:	82 e1       	ldi	r24, 0x12	; 18
+    11c8:	90 e0       	ldi	r25, 0x00	; 0
+    11ca:	0e 94 ae 09 	call	0x135c	; 0x135c <__udivmodsi4>
+    11ce:	20 93 43 01 	sts	0x0143, r18
+    11d2:	30 93 44 01 	sts	0x0144, r19
+    11d6:	40 93 45 01 	sts	0x0145, r20
+    11da:	50 93 46 01 	sts	0x0146, r21
+						if(actualLevel_CH2!=0) dimmStepWidth_CH2 = (uint32_t) ASLEEP_TIME_1*2000/actualLevel_CH2;
+    11de:	20 91 5b 01 	lds	r18, 0x015B
+    11e2:	30 91 5c 01 	lds	r19, 0x015C
+    11e6:	21 15       	cp	r18, r1
+    11e8:	31 05       	cpc	r19, r1
+    11ea:	09 f4       	brne	.+2      	; 0x11ee <calculateStep+0x126>
+    11ec:	3f c0       	rjmp	.+126    	; 0x126c <calculateStep+0x1a4>
+    11ee:	40 e0       	ldi	r20, 0x00	; 0
+    11f0:	50 e0       	ldi	r21, 0x00	; 0
+    11f2:	60 e8       	ldi	r22, 0x80	; 128
+    11f4:	7f e4       	ldi	r23, 0x4F	; 79
+    11f6:	82 e1       	ldi	r24, 0x12	; 18
+    11f8:	90 e0       	ldi	r25, 0x00	; 0
+    11fa:	0e 94 ae 09 	call	0x135c	; 0x135c <__udivmodsi4>
+    11fe:	20 93 4b 01 	sts	0x014B, r18
+    1202:	30 93 4c 01 	sts	0x014C, r19
+    1206:	40 93 4d 01 	sts	0x014D, r20
+    120a:	50 93 4e 01 	sts	0x014E, r21
+    120e:	2e c0       	rjmp	.+92     	; 0x126c <calculateStep+0x1a4>
+			break;
+			case S_VIDEO:
+						if(actualLevel_CH1!=0) dimmStepWidth_CH1 = (uint32_t) ASLEEP_TIME_2*2000/actualLevel_CH1;
+    1210:	20 91 54 01 	lds	r18, 0x0154
+    1214:	30 91 55 01 	lds	r19, 0x0155
+    1218:	21 15       	cp	r18, r1
+    121a:	31 05       	cpc	r19, r1
+    121c:	81 f0       	breq	.+32     	; 0x123e <calculateStep+0x176>
+    121e:	40 e0       	ldi	r20, 0x00	; 0
+    1220:	50 e0       	ldi	r21, 0x00	; 0
+    1222:	60 e0       	ldi	r22, 0x00	; 0
+    1224:	7b e1       	ldi	r23, 0x1B	; 27
+    1226:	87 eb       	ldi	r24, 0xB7	; 183
+    1228:	90 e0       	ldi	r25, 0x00	; 0
+    122a:	0e 94 ae 09 	call	0x135c	; 0x135c <__udivmodsi4>
+    122e:	20 93 43 01 	sts	0x0143, r18
+    1232:	30 93 44 01 	sts	0x0144, r19
+    1236:	40 93 45 01 	sts	0x0145, r20
+    123a:	50 93 46 01 	sts	0x0146, r21
+						if(actualLevel_CH2!=0) dimmStepWidth_CH2 = (uint32_t) ASLEEP_TIME_2*2000/actualLevel_CH2;
+    123e:	20 91 5b 01 	lds	r18, 0x015B
+    1242:	30 91 5c 01 	lds	r19, 0x015C
+    1246:	21 15       	cp	r18, r1
+    1248:	31 05       	cpc	r19, r1
+    124a:	81 f0       	breq	.+32     	; 0x126c <calculateStep+0x1a4>
+    124c:	40 e0       	ldi	r20, 0x00	; 0
+    124e:	50 e0       	ldi	r21, 0x00	; 0
+    1250:	60 e0       	ldi	r22, 0x00	; 0
+    1252:	7b e1       	ldi	r23, 0x1B	; 27
+    1254:	87 eb       	ldi	r24, 0xB7	; 183
+    1256:	90 e0       	ldi	r25, 0x00	; 0
+    1258:	0e 94 ae 09 	call	0x135c	; 0x135c <__udivmodsi4>
+    125c:	20 93 4b 01 	sts	0x014B, r18
+    1260:	30 93 4c 01 	sts	0x014C, r19
+    1264:	40 93 4d 01 	sts	0x014D, r20
+    1268:	50 93 4e 01 	sts	0x014E, r21
+			break;
+		}
+	}
+	dimmTimeTick_CH1 = 0;
+    126c:	10 92 2d 01 	sts	0x012D, r1
+    1270:	10 92 2e 01 	sts	0x012E, r1
+    1274:	10 92 2f 01 	sts	0x012F, r1
+    1278:	10 92 30 01 	sts	0x0130, r1
+	dimmTimeTick_CH2 = 0;
+    127c:	10 92 3a 01 	sts	0x013A, r1
+    1280:	10 92 3b 01 	sts	0x013B, r1
+    1284:	10 92 3c 01 	sts	0x013C, r1
+    1288:	10 92 3d 01 	sts	0x013D, r1
+    128c:	08 95       	ret
+
+0000128e <main>:
+}
+
+int main(void)
+{
+	LED_DDR |= (1<<R_LED)|(1<<G_LED)|(1<<B_LED)|(1<<Y_LED);
+    128e:	87 b1       	in	r24, 0x07	; 7
+    1290:	8f 60       	ori	r24, 0x0F	; 15
+    1292:	87 b9       	out	0x07, r24	; 7
+    1294:	88 e0       	ldi	r24, 0x08	; 8
+	
+	for (uint8_t i=0;i<8;i++)
+	{
+		R_ON;
+    1296:	41 9a       	sbi	0x08, 1	; 8
+		G_ON;
+    1298:	42 9a       	sbi	0x08, 2	; 8
+		B_ON;
+    129a:	40 9a       	sbi	0x08, 0	; 8
+		Y_ON;
+    129c:	43 9a       	sbi	0x08, 3	; 8
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+    129e:	2f ef       	ldi	r18, 0xFF	; 255
+    12a0:	36 e7       	ldi	r19, 0x76	; 118
+    12a2:	91 e0       	ldi	r25, 0x01	; 1
+    12a4:	21 50       	subi	r18, 0x01	; 1
+    12a6:	30 40       	sbci	r19, 0x00	; 0
+    12a8:	90 40       	sbci	r25, 0x00	; 0
+    12aa:	e1 f7       	brne	.-8      	; 0x12a4 <main+0x16>
+    12ac:	00 c0       	rjmp	.+0      	; 0x12ae <main+0x20>
+    12ae:	00 00       	nop
+		_delay_ms(30);
+		R_OFF;
+    12b0:	41 98       	cbi	0x08, 1	; 8
+		G_OFF;
+    12b2:	42 98       	cbi	0x08, 2	; 8
+		B_OFF;
+    12b4:	40 98       	cbi	0x08, 0	; 8
+		Y_OFF;
+    12b6:	43 98       	cbi	0x08, 3	; 8
+    12b8:	2f ef       	ldi	r18, 0xFF	; 255
+    12ba:	36 e7       	ldi	r19, 0x76	; 118
+    12bc:	91 e0       	ldi	r25, 0x01	; 1
+    12be:	21 50       	subi	r18, 0x01	; 1
+    12c0:	30 40       	sbci	r19, 0x00	; 0
+    12c2:	90 40       	sbci	r25, 0x00	; 0
+    12c4:	e1 f7       	brne	.-8      	; 0x12be <main+0x30>
+    12c6:	00 c0       	rjmp	.+0      	; 0x12c8 <main+0x3a>
+    12c8:	00 00       	nop
+    12ca:	81 50       	subi	r24, 0x01	; 1
+
+int main(void)
+{
+	LED_DDR |= (1<<R_LED)|(1<<G_LED)|(1<<B_LED)|(1<<Y_LED);
+	
+	for (uint8_t i=0;i<8;i++)
+    12cc:	21 f7       	brne	.-56     	; 0x1296 <main+0x8>
+		B_OFF;
+		Y_OFF;
+		_delay_ms(30);
+	}
+
+	initPWM();
+    12ce:	0e 94 9f 06 	call	0xd3e	; 0xd3e <initPWM>
+	initIrNEC();
+    12d2:	0e 94 ce 04 	call	0x99c	; 0x99c <initIrNEC>
+	
+	//************* Parametry pocz¹tkowe*******************
+	OCR1A = pgm_read_word(&OCR_Array[0]);
+    12d6:	82 e9       	ldi	r24, 0x92	; 146
+    12d8:	90 e0       	ldi	r25, 0x00	; 0
+    12da:	fc 01       	movw	r30, r24
+    12dc:	25 91       	lpm	r18, Z+
+    12de:	34 91       	lpm	r19, Z
+    12e0:	30 93 89 00 	sts	0x0089, r19
+    12e4:	20 93 88 00 	sts	0x0088, r18
+	OCR1B = pgm_read_word(&OCR_Array[0]);
+    12e8:	fc 01       	movw	r30, r24
+    12ea:	85 91       	lpm	r24, Z+
+    12ec:	94 91       	lpm	r25, Z
+    12ee:	90 93 8b 00 	sts	0x008B, r25
+    12f2:	80 93 8a 00 	sts	0x008A, r24
+	actualCommand = NO_COMMAND;
+    12f6:	10 92 58 01 	sts	0x0158, r1
+	selectedChannel = CH_1;
+    12fa:	81 e0       	ldi	r24, 0x01	; 1
+    12fc:	80 93 5f 01 	sts	0x015F, r24
+	dimStatus = NO_DIMM;
+    1300:	10 92 5a 01 	sts	0x015A, r1
+	//*****************************************************
+	
+    while(1)
+    {
+		if (edge_Flag)
+    1304:	80 91 36 01 	lds	r24, 0x0136
+    1308:	88 23       	and	r24, r24
+    130a:	21 f0       	breq	.+8      	; 0x1314 <main+0x86>
+		{
+			edge_Flag = 0;
+    130c:	10 92 36 01 	sts	0x0136, r1
+			decodeNECframe();
+    1310:	0e 94 a9 05 	call	0xb52	; 0xb52 <decodeNECframe>
+		}
+		
+		// ******* Wykonywane jednorazowo po przyjêciu nowej komendy *****
+		if (confirmedCommand != actualCommand)
+    1314:	80 91 47 01 	lds	r24, 0x0147
+    1318:	90 91 58 01 	lds	r25, 0x0158
+    131c:	89 17       	cp	r24, r25
+    131e:	31 f0       	breq	.+12     	; 0x132c <main+0x9e>
+		{
+			actualCommand = confirmedCommand;
+    1320:	80 93 58 01 	sts	0x0158, r24
+			checkCommand();
+    1324:	0e 94 b3 06 	call	0xd66	; 0xd66 <checkCommand>
+			calculateStep();
+    1328:	0e 94 64 08 	call	0x10c8	; 0x10c8 <calculateStep>
+		}
+		//****************************************************************
+		
+		
+		if (dimStatus!=NO_DIMM) dimm();
+    132c:	80 91 5a 01 	lds	r24, 0x015A
+    1330:	88 23       	and	r24, r24
+    1332:	69 f0       	breq	.+26     	; 0x134e <main+0xc0>
+    1334:	0e 94 6b 07 	call	0xed6	; 0xed6 <dimm>
+		
+		
+		//test------------------------------------------------
+		if (dimStatus==MANUAL_DIMM)//manualDimmFlag)
+    1338:	80 91 5a 01 	lds	r24, 0x015A
+    133c:	81 30       	cpi	r24, 0x01	; 1
+    133e:	09 f4       	brne	.+2      	; 0x1342 <main+0xb4>
+		{
+			Y_ON;
+    1340:	43 9a       	sbi	0x08, 3	; 8
+		} 
+		
+		if (dimStatus==PRESET_DIMM || dimStatus==ONOFF_DIMM)
+    1342:	80 91 5a 01 	lds	r24, 0x015A
+    1346:	82 50       	subi	r24, 0x02	; 2
+    1348:	82 30       	cpi	r24, 0x02	; 2
+    134a:	08 f4       	brcc	.+2      	; 0x134e <main+0xc0>
+		{
+			B_ON;
+    134c:	40 9a       	sbi	0x08, 0	; 8
+		}
+		if (dimStatus==NO_DIMM)//manualDimmFlag)
+    134e:	80 91 5a 01 	lds	r24, 0x015A
+    1352:	81 11       	cpse	r24, r1
+    1354:	d7 cf       	rjmp	.-82     	; 0x1304 <main+0x76>
+		{
+			Y_OFF;
+    1356:	43 98       	cbi	0x08, 3	; 8
+			B_OFF;
+    1358:	40 98       	cbi	0x08, 0	; 8
+    135a:	d4 cf       	rjmp	.-88     	; 0x1304 <main+0x76>
+
+0000135c <__udivmodsi4>:
+    135c:	a1 e2       	ldi	r26, 0x21	; 33
+    135e:	1a 2e       	mov	r1, r26
+    1360:	aa 1b       	sub	r26, r26
+    1362:	bb 1b       	sub	r27, r27
+    1364:	fd 01       	movw	r30, r26
+    1366:	0d c0       	rjmp	.+26     	; 0x1382 <__udivmodsi4_ep>
+
+00001368 <__udivmodsi4_loop>:
+    1368:	aa 1f       	adc	r26, r26
+    136a:	bb 1f       	adc	r27, r27
+    136c:	ee 1f       	adc	r30, r30
+    136e:	ff 1f       	adc	r31, r31
+    1370:	a2 17       	cp	r26, r18
+    1372:	b3 07       	cpc	r27, r19
+    1374:	e4 07       	cpc	r30, r20
+    1376:	f5 07       	cpc	r31, r21
+    1378:	20 f0       	brcs	.+8      	; 0x1382 <__udivmodsi4_ep>
+    137a:	a2 1b       	sub	r26, r18
+    137c:	b3 0b       	sbc	r27, r19
+    137e:	e4 0b       	sbc	r30, r20
+    1380:	f5 0b       	sbc	r31, r21
+
+00001382 <__udivmodsi4_ep>:
+    1382:	66 1f       	adc	r22, r22
+    1384:	77 1f       	adc	r23, r23
+    1386:	88 1f       	adc	r24, r24
+    1388:	99 1f       	adc	r25, r25
+    138a:	1a 94       	dec	r1
+    138c:	69 f7       	brne	.-38     	; 0x1368 <__udivmodsi4_loop>
+    138e:	60 95       	com	r22
+    1390:	70 95       	com	r23
+    1392:	80 95       	com	r24
+    1394:	90 95       	com	r25
+    1396:	9b 01       	movw	r18, r22
+    1398:	ac 01       	movw	r20, r24
+    139a:	bd 01       	movw	r22, r26
+    139c:	cf 01       	movw	r24, r30
+    139e:	08 95       	ret
+
+000013a0 <__tablejump2__>:
+    13a0:	ee 0f       	add	r30, r30
+    13a2:	ff 1f       	adc	r31, r31
+
+000013a4 <__tablejump__>:
+    13a4:	05 90       	lpm	r0, Z+
+    13a6:	f4 91       	lpm	r31, Z
+    13a8:	e0 2d       	mov	r30, r0
+    13aa:	09 94       	ijmp
+
+000013ac <_exit>:
+    13ac:	f8 94       	cli
+
+000013ae <__stop_program>:
+    13ae:	ff cf       	rjmp	.-2      	; 0x13ae <__stop_program>

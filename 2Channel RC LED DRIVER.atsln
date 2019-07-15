@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "2Channel RC LED DRIVER", "2Channel RC LED DRIVER\2Channel RC LED DRIVER.cproj", "{BDD7A408-467F-4FC1-A70C-AD9838895FDE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BDD7A408-467F-4FC1-A70C-AD9838895FDE}.Debug|AVR.ActiveCfg = Debug|AVR
+		{BDD7A408-467F-4FC1-A70C-AD9838895FDE}.Debug|AVR.Build.0 = Debug|AVR
+		{BDD7A408-467F-4FC1-A70C-AD9838895FDE}.Release|AVR.ActiveCfg = Release|AVR
+		{BDD7A408-467F-4FC1-A70C-AD9838895FDE}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
